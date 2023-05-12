@@ -1,0 +1,58 @@
+from .resource_manager import assets_root
+from .resource_manager import db_root as ROOT
+from httpx import AsyncClient
+from tqdm import tqdm
+from os import listdir, makedirs
+from typing import List
+from .config import config
+
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"
+}
+
+src_api_url = config.get_config("src_url")
+
+
+class AssetsUpdater:
+    @staticmethod
+    async def check_song_update() -> List[str]:
+        song_dir = assets_root / "song"
+        song_dir.mkdir(exist_ok=True, parents=True)
+        async with AsyncClient(timeout=100) as client:
+            resp1 = await client.get(src_api_url + "song_list")
+            result = []
+            for k, v in tqdm((resp1.json()).items()):
+                if k not in listdir(song_dir):
+                    for link in v:
+                        args = link.split("/")
+                        makedirs(song_dir / args[-2], exist_ok=True)
+                        resp2 = await client.get(link)
+                        with open(song_dir / args[-2] / args[-1], "wb") as file:
+                            file.write(resp2.read())
+                            result.append(args[-2])
+                elif missed := (
+                    {i.split("/")[-1] for i in v} - set(listdir(song_dir / k))
+                ):
+                    for link in v:
+                        args = link.split("/")
+                        if args[-1] in missed:
+                            resp2 = await client.get(link)
+                            with open(song_dir / args[-2] / args[-1], "wb") as file:
+                                file.write(resp2.read())
+                                result.append(args[-2])
+            return result
+
+    @staticmethod
+    async def check_char_update() -> List[str]:
+        char_dir = assets_root / "char"
+        char_dir.mkdir(exist_ok=True, parents=True)
+        async with AsyncClient(timeout=100) as client:
+            resp1 = await client.get(src_api_url + "char_list")
+            result = list()
+            for k, v in tqdm((resp1.json()).items()):
+                if k not in listdir(char_dir):
+                    resp2 = await client.get(v)
+                    with open(char_dir / k, "wb") as file:
+                        file.write(resp2.read())
+                        result.append(k)
+            return result

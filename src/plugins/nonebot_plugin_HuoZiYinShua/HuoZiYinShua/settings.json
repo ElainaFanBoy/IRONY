@@ -1,0 +1,6 @@
+{
+	"sourceDirectory": "./src/plugins/nonebot_plugin_HuoZiYinShua/HuoZiYinShua/sources/",
+	"ysddSourceDirectory": "./src/plugins/nonebot_plugin_HuoZiYinShua/HuoZiYinShua/ysddSources/",
+	"dictFile": "./src/plugins/nonebot_plugin_HuoZiYinShua/HuoZiYinShua/dictionary.json",
+	"ysddTableFile": "./src/plugins/nonebot_plugin_HuoZiYinShua/HuoZiYinShua/ysddTable.json"
+}
