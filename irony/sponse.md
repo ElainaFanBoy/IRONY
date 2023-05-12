@@ -1,0 +1,1 @@
+<div><img src="https://cdn.jsdelivr.net/gh/ElainaFanBoy/IRONY/sponse/wechat.png"><img src="https://cdn.jsdelivr.net/gh/ElainaFanBoy/IRONY/sponse/alipay.png"></div>
