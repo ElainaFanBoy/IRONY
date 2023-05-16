@@ -1,4 +1,5 @@
 from nonebot import on_regex
+from nonebot.permission import SUPERUSER
 from nonebot.plugin import PluginMetadata
 from .handle import wordle_help
 
@@ -8,6 +9,7 @@ on_regex(
     r'^(?=.*[a-zA-Z])(?=.*_)[a-zA-Z_]+(#(?=[a-zA-Z]+$)[a-zA-Z]*)?$',
     priority=10,
     block=True,
+    permission=SUPERUSER,
     handlers=[wordle_help.main]
 )
 

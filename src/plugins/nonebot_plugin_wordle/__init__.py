@@ -67,7 +67,7 @@ class Options:
 games: Dict[str, Wordle] = {}
 timers: Dict[str, TimerHandle] = {}
 
-wordle = on_shell_command("wordle", parser=parser, block=True, priority=13)
+wordle = on_shell_command("wordle", parser=parser, block=True, priority=4)
 
 
 @wordle.handle()

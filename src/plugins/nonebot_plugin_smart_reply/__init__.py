@@ -24,7 +24,7 @@ async def _poke_event(event: PokeNotifyEvent):
 
 # help响应器
 help = on_command("!help", aliases={
-                  "！help", "!帮助", "！帮助", "help", "帮助","功能"}, block=True)
+                  "！help", "!帮助", "！帮助", "help", "帮助","功能"}, block=False)
 
 
 # 发送help处理操作

@@ -1,6 +1,6 @@
 from nonebot.rule import T_State
 from nonebot import on_message, get_driver
-from nonebot.adapters.onebot.v11 import Bot, GroupMessageEvent, Message
+from nonebot.adapters.onebot.v11 import Bot, GroupMessageEvent, MessageSegment
 import re
 from .config import Config
 from .data_source import get_github_reposity_information
@@ -15,4 +15,4 @@ async def github_handle(bot: Bot, event: GroupMessageEvent, state: T_State):
     url = event.get_plaintext()
     imageUrl = await get_github_reposity_information(url)
     assert(imageUrl != "获取信息失败")
-    await github.send(Message(f"[CQ:image,file={imageUrl}]"))
+    await github.send(MessageSegment.image(imageUrl))
