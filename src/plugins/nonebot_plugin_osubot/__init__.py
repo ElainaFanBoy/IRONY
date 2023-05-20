@@ -1,7 +1,7 @@
-import os
 import re
 import shutil
 import urllib
+import asyncio
 from dataclasses import dataclass
 from pathlib import Path
 from random import shuffle
@@ -68,7 +68,7 @@ __plugin_meta__ = PluginMetadata(
     extra={
         "unique_name": "osubot",
         "author": "yaowan233 <572473053@qq.com>",
-        "version": "1.7.0",
+        "version": "1.7.4",
     },
 )
 
@@ -127,7 +127,8 @@ def split_msg():
 
 
 parser = ArgumentParser('convert', description='变换mania谱面')
-parser.add_argument('set', type=int, help='要转换的谱面的setid')
+parser.add_argument('--set', type=int, help='要转换的谱面的setid')
+parser.add_argument('--map', type=int, help='要转换的谱面的mapid')
 parser.add_argument('--fln', action='store_true', help='将谱面转换为反键')
 parser.add_argument('--rate', type=float, help='谱面倍速速率')
 parser.add_argument('--end_rate', type=float, help='谱面倍速速率的最大值')
@@ -139,7 +140,6 @@ parser.add_argument('--gap', nargs='?', default='150', type=float, help='指定�
 parser.add_argument('--thres', nargs='?', default='100', type=float, help='指定转反键时ln转换为note的阈值，默认100ms')
 
 convert = on_shell_command("!convert", aliases={'！convert'}, parser=parser, block=True, priority=5)
-
 
 @convert.handle()
 async def _(
@@ -156,6 +156,10 @@ async def _(
         await convert.finish(MessageSegment.reply(event.message_id) + str(e))
         return
     options = Options(**vars(args))
+    if options.map:
+        sayo_map_info = await get_sayo_map_info(options.map, 1)
+        options.set = sayo_map_info.data.sid
+        options.sayo_info = sayo_map_info
     if not options.set:
         await convert.finish(MessageSegment.reply(event.message_id) + '请提供需要转换的谱面setID')
     if options.nln and options.fln:
@@ -171,7 +175,7 @@ async def _(
         await convert.finish(MessageSegment.reply(event.message_id) + '上传文件失败，可能是群空间满或没有权限导致的')
     finally:
         try:
-            os.remove(osz_file)
+            osz_file.unlink()
         except PermissionError:
             ...
 
@@ -334,11 +338,12 @@ async def _osudl(bot: Bot, event: Union[GroupMessageEvent, GuildMessageEvent], m
         await osudl.finish(MessageSegment.reply(event.message_id) + '上传文件失败，可能是群空间满或没有权限导致的')
     finally:
         try:
-            os.remove(osz_path)
+            osz_path.unlink()
         except PermissionError:
             ...
 
 bind = on_command('!bind', aliases={'！bind'} , priority=5, block=True)
+lock = asyncio.Lock()
 
 
 @bind.handle()
@@ -346,9 +351,10 @@ async def _bind(event: Union[MessageEvent, GuildMessageEvent], msg: Message = Co
     name = msg.extract_plain_text()
     if not name:
         await bind.finish(MessageSegment.reply(event.message_id) + '请输入您的 osuid')
-    if _ := await UserData.get_or_none(user_id=event.get_user_id()):
-        await bind.finish(MessageSegment.reply(event.message_id) + '您已绑定，如需要解绑请输入!unbind')
-    msg = await bind_user_info('bind', name, event.get_user_id())
+    async with lock:
+        if _ := await UserData.get_or_none(user_id=event.get_user_id()):
+            await bind.finish(MessageSegment.reply(event.message_id) + '您已绑定，如需要解绑请输入/unbind')
+        msg = await bind_user_info('bind', name, event.get_user_id())
     await bind.finish(MessageSegment.reply(event.message_id) + msg)
 
 
@@ -407,12 +413,12 @@ async def _(bot: Bot, event: Union[GroupMessageEvent, GuildMessageEvent], msg: M
     if isinstance(event, GuildMessageEvent):
         await convert.finish(MessageSegment.reply(event.message_id) + '很抱歉，频道暂不支持上传文件')
     args = msg.extract_plain_text().strip().split()
-    argv = []
+    argv = ['--map']
     if not args:
-        await change.finish(MessageSegment.reply(event.message_id) + '请输入需要倍速的地图setID')
+        await change.finish(MessageSegment.reply(event.message_id) + '请输入需要倍速的地图mapID')
     set_id = args[0]
     if not set_id.isdigit():
-        await change.finish(MessageSegment.reply(event.message_id) + '请输入正确的setID')
+        await change.finish(MessageSegment.reply(event.message_id) + '请输入正确的mapID')
     argv.append(set_id)
     if len(args) >= 2:
         argv.append('--rate')
@@ -425,6 +431,10 @@ async def _(bot: Bot, event: Union[GroupMessageEvent, GuildMessageEvent], msg: M
         await change.finish(MessageSegment.reply(event.message_id) + '请输入倍速速率')
     args = parser.parse_args(argv)
     options = Options(**vars(args))
+    if options.map:
+        sayo_map_info = await get_sayo_map_info(options.map, 1)
+        options.set = sayo_map_info.data.sid
+        options.sayo_info = sayo_map_info
     osz_path = await convert_mania_map(options)
     if not osz_path:
         await change.finish(MessageSegment.reply(event.message_id) + '未找到该地图，请检查是否搞混了mapID与setID')
@@ -436,7 +446,7 @@ async def _(bot: Bot, event: Union[GroupMessageEvent, GuildMessageEvent], msg: M
         await change.finish(MessageSegment.reply(event.message_id) + '上传文件失败，可能是群空间满或没有权限导致的')
     finally:
         try:
-            os.remove(osz_path)
+            osz_path.unlink()
         except PermissionError:
             ...
 
@@ -453,7 +463,7 @@ async def _(bot: Bot, event: Union[GroupMessageEvent, GuildMessageEvent], msg: M
     set_id = args[0]
     if not set_id.isdigit():
         await generate_full_ln.finish(MessageSegment.reply(event.message_id) + '请输入正确的setID')
-    argv = [set_id, '--fln']
+    argv = ['--set', set_id, '--fln']
     if len(args) >= 2:
         argv.append('--gap')
         argv.append(args[1])
@@ -473,7 +483,7 @@ async def _(bot: Bot, event: Union[GroupMessageEvent, GuildMessageEvent], msg: M
         await generate_full_ln.finish(MessageSegment.reply(event.message_id) + '上传文件失败，可能是群空间满或没有权限导致的')
     finally:
         try:
-            os.remove(osz_path)
+            osz_path.unlink()
         except PermissionError:
             ...
 
@@ -522,7 +532,7 @@ async def _(state: T_State, event: Union[MessageEvent, GuildMessageEvent]):
     user = state['user']
     path = user_cache_path / str(user) / 'icon.png'
     if path.exists():
-        os.remove(path)
+        path.unlink()
     await update.finish(MessageSegment.reply(event.message_id) + '个人信息更新成功')
 
 accept = on_command('同意全部', priority=11, block=True, permission=SUPERUSER)
@@ -563,9 +573,9 @@ async def _(event: Union[MessageEvent, GuildMessageEvent], state: T_State):
     if mode == 1 or mode == 2:
         await recommend.finish('很抱歉，该模式暂不支持推荐')
     recommend_data = await get_recommend(user, mode)
-    shuffle(recommend_data.data.list)
     if not recommend_data.data.list:
         await recommend.finish('没有可以推荐的图哦，自己多打打喜欢玩的图吧')
+    shuffle(recommend_data.data.list)
     if not recommend_cache.get(user):
         recommend_cache[user] = set()
     for i in recommend_data.data.list:
@@ -588,7 +598,7 @@ async def _(event: Union[MessageEvent, GuildMessageEvent], state: T_State):
         logger.debug(f'如果看到这句话请联系作者 有问题的是{bid}, {sid}')
     s = f'推荐的铺面是{recommend_map.mapName} ⭐{round(recommend_map.difficulty, 2)}\n{"".join(recommend_map.mod)}\n' \
         f'预计pp为{round(recommend_map.predictPP, 2)}\n提升概率为{round(recommend_map.passPercent*100, 2)}%\n' \
-        f'{recommend_map.mapLink}\nhttps://kitsu.moe/api/d/{sid}\nhttps://txy1.sayobot.cn/beatmaps/download/novideo/{sid}'
+        f'{recommend_map.mapLink}\nhttps://osu.direct/api/d/{sid}\nhttps://txy1.sayobot.cn/beatmaps/download/novideo/{sid}'
     await recommend.finish(MessageSegment.reply(event.message_id) +
                            MessageSegment.image(f'https://dl.sayobot.cn/beatmaps/files/{sid}/{bg}') + s)
 
@@ -610,9 +620,9 @@ url_match = on_regex("https://osu.ppy.sh/beatmapsets/(.*)#")
 
 @url_match.handle()
 async def _url(event: Union[MessageEvent, GuildMessageEvent], bid: tuple = RegexGroup()):
-    url_1 = "https://kitsu.moe/api/d/"
+    url_1 = "https://osu.direct/api/d/"
     url_2 = "https://txy1.sayobot.cn/beatmaps/download/novideo/"
-    url_total = f"小夜镜像站：{url_2}{bid[0]}"
+    url_total = f"osu.direct镜像站：{url_1}{bid[0]}\n小夜镜像站：{url_2}{bid[0]}"
     await url_match.finish(MessageSegment.reply(event.message_id) + url_total)
 
 
@@ -631,6 +641,10 @@ async def delete_cached_map():
     map_path = Path('data/osu/map')
     shutil.rmtree(map_path)
     map_path.mkdir(parents=True, exist_ok=True)
+    user_path = Path('data/osu/user')
+    for file_path in user_path.glob('**/*'):
+        if file_path.is_file() and file_path.name == 'icon.png':
+            file_path.unlink()
 
 @scheduler.scheduled_job('cron', hour='4', day_of_week='0,1,2,3,4,5')
 async def delete_cached_midi():

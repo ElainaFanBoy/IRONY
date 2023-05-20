@@ -38,7 +38,7 @@ def delete_file(dir):
 # Path(embedding_folder).mkdir(parents=True, exist_ok=True)
 
 
-pdf_request = on_command("pdfstart", block=True, priority=5)
+pdf_request = on_command("pdfstart", block=True, priority=1)
 
 
 @pdf_request.handle()
