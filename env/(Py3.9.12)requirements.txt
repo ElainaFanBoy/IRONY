@@ -89,6 +89,7 @@ llvmlite==0.40.0
 lmdb==1.4.1
 loguru==0.6.0
 lxml==4.9.2
+mahjong-utils==0.4.3
 Mako==1.2.4
 Markdown==3.4.3
 markdown-it-py==2.2.0
@@ -126,6 +127,7 @@ nonebot-plugin-hikarisearch==0.1.7
 nonebot-plugin-htmlrender==0.2.0.3
 nonebot-plugin-imageutils==0.1.17
 nonebot-plugin-localstore==0.4.1
+nonebot-plugin-mahjong-utils==0.2.7
 nonebot-plugin-majsoul==0.1.4
 nonebot-plugin-manga-translator==0.1.2
 nonebot-plugin-memes==0.4.6
@@ -223,6 +225,7 @@ soupsieve==2.4.1
 SQLAlchemy==2.0.12
 starlette==0.26.1
 StrEnum==0.4.10
+stringcase==1.2.0
 sympy==1.11.1
 tb-nightly==2.14.0a20230509
 tensorboard-data-server==0.7.0
