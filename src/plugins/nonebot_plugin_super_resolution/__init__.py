@@ -56,7 +56,7 @@ max_size = 7372800
 cdTime = 300
 SuperResolution_CD = {}
 
-superResolution = on_command("超分", priority=5, block=True)
+superResolution = on_command("超分", priority=10, block=True)
 
 
 def parse_image(key: str):

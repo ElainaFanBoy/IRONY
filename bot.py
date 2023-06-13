@@ -23,9 +23,12 @@ driver.register_adapter(ONEBOT_V11Adapter)
 
 nonebot.load_builtin_plugins("echo")
 nonebot.load_plugin("nonebot_plugin_apscheduler")
+nonebot.load_plugins("src/firstload")
 nonebot.load_plugins("src/plugins")
 nonebot.load_plugin("nonebot_plugin_majsoul")
+nonebot.load_plugin("nonebot_plugin_mahjong_utils")
 nonebot.load_plugin("nonebot_plugin_manga_translator")
+nonebot.load_plugin(r"nonebot_plugin_sky")
 
 
 # Please DO NOT modify this file unless you know what you are doing!
