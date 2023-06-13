@@ -22,6 +22,7 @@ bbcode==1.1.0
 beautifulsoup4==4.12.2
 binaryornot==0.4.4
 bleach==6.0.0
+Brotli==1.0.9
 bs4==0.0.1
 cachetools==5.3.0
 caio==0.9.12
@@ -37,6 +38,7 @@ colorama==0.4.6
 contourpy==1.0.7
 cookiecutter==2.1.1
 cryptography==40.0.2
+cssselect==1.2.0
 cycler==0.11.0
 Cython==0.29.34
 dateparser==1.1.8
@@ -57,10 +59,12 @@ filetype==1.2.0
 filterpy==1.4.5
 fonttools==4.39.3
 frozenlist==1.3.3
+fsspec==2023.5.0
 future==0.18.3
 gfpgan==1.3.8
 google-auth==2.17.3
 google-auth-oauthlib==1.0.0
+gradio_client==0.2.4
 greenlet==2.0.1
 grpcio==1.54.0
 h11==0.14.0
@@ -68,7 +72,8 @@ h2==4.1.0
 hpack==4.0.0
 httpcore==0.16.3
 httptools==0.5.0
-httpx==0.24.0
+httpx==0.23.3
+huggingface-hub==0.14.1
 hyperframe==6.0.1
 icmplib==3.0.3
 icrawler==0.6.6
@@ -81,9 +86,11 @@ jaraco.classes==3.2.3
 jieba==0.42.1
 Jinja2==3.1.2
 jinja2-time==0.2.0
+joblib==1.2.0
 jsonpath==0.82
 keyring==23.13.1
 kiwisolver==1.4.4
+lagrange==2.0.2
 lazy_loader==0.2
 llvmlite==0.40.0
 lmdb==1.4.1
@@ -125,6 +132,7 @@ nonebot-plugin-guild-patch==0.2.3
 nonebot-plugin-heweather @ file:///C:/Users/Demo/Downloads/nonebot_plugin_heweather-0.6.5-py3-none-any.whl#sha256=916ca6f8ce8bedbcd7e54eb59d7b2c2f9acc0d85a69d117d0493f8e93125cf47
 nonebot-plugin-hikarisearch==0.1.7
 nonebot-plugin-htmlrender==0.2.0.3
+nonebot-plugin-imagetools==0.2.1
 nonebot-plugin-imageutils==0.1.17
 nonebot-plugin-localstore==0.4.1
 nonebot-plugin-mahjong-utils==0.2.7
@@ -154,6 +162,7 @@ osrparse==5.0.0
 packaging==23.1
 pandas==2.0.1
 peewee==3.16.2
+picimagesearch==3.9.0
 pil-utils==0.1.7
 Pillow==9.5.0
 pinyin==0.4.0
@@ -189,6 +198,7 @@ pyparsing==3.0.9
 pypika-tortoise==0.1.6
 pypinyin==0.48.0
 pypng==0.20220715.0
+pyquery==2.0.0
 PySocks==1.7.1
 python-dateutil==2.8.2
 python-dotenv==1.0.0
@@ -217,7 +227,9 @@ rsa==4.9
 ruamel.yaml==0.17.26
 ruamel.yaml.clib==0.2.7
 scikit-image==0.20.0
+scikit-learn==1.2.2
 scipy==1.9.1
+seqeval==1.2.2
 six==1.16.0
 sniffio==1.3.0
 soundfile==0.12.1
@@ -230,6 +242,7 @@ sympy==1.11.1
 tb-nightly==2.14.0a20230509
 tensorboard-data-server==0.7.0
 text-unidecode==1.3
+threadpoolctl==3.1.0
 tifffile==2023.4.12
 tiktoken==0.4.0
 tinydb==4.7.1
