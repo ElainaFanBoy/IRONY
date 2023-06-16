@@ -10,12 +10,12 @@ from httpx import AsyncClient
 import re
 import openai
 
-
+'''
 try:
     apiKey: str = nonebot.get_driver().config.xiaoai_apikey
 except:
     apiKey: str = "寄"
-
+'''
 try:
     Bot_NICKNAME: str = nonebot.get_driver(
     ).config.bot_nickname     # bot的nickname,可以换成你自己的
@@ -25,7 +25,7 @@ except:
     Bot_MASTER: str = "Nanako"
 # NICKNAME: str = "Hinata"
 # MASTER: str = "星野日向_Official"
-
+'''
 try:
     api_key = nonebot.get_driver().config.openai_api_key
 except:
@@ -35,17 +35,17 @@ try:
     max_tokens = nonebot.get_driver().config.openai_max_tokens
 except:
     max_tokens = 1000
-
-
+'''
+'''
 # 载入词库(这个词库有点涩)
 AnimeThesaurus = json.load(open(Path(os.path.join(os.path.dirname(
     __file__), "resource/json")) / "data.json", "r", encoding="utf8"))
-
+'''
 
 # 获取resource/audio下面的全部文件
 aac_file_path = os.path.join(os.path.dirname(__file__), "resource/audio")
 aac_file_list = os.listdir(aac_file_path)
-
+'''
 # hello之类的回复
 hello__reply = [
     "你好！",
@@ -55,8 +55,8 @@ hello__reply = [
     "我在呢！",
     "呼呼，叫俺干嘛",
 ]
-
-
+'''
+'''
 # 戳一戳消息
 poke__reply = [
     "lsp你再戳？",
@@ -81,10 +81,10 @@ poke__reply = [
     "啊呜，太舒服刚刚竟然睡着了。什么事？",
     "正在定位您的真实地址...定位成功。轰炸机已起飞",
 ]
-
+'''
 # 从字典里返还消息, 抄(借鉴)的zhenxun-bot
 
-
+'''
 async def get_chat_result(text: str, nickname: str) -> str:
     if len(text) < 7:
         keys = AnimeThesaurus.keys()
@@ -93,8 +93,9 @@ async def get_chat_result(text: str, nickname: str) -> str:
                 return random.choice(AnimeThesaurus[key]).replace("你", nickname)
 
 # 从qinyunke_api拿到消息
+'''
 
-
+'''
 async def qinyun_reply(url):
     async with AsyncClient() as client:
         response = await client.get(url)
@@ -106,10 +107,10 @@ async def qinyun_reply(url):
         if have_url(res):
             res = Bot_NICKNAME + "暂时听不懂主人说的话呢"
         return res
-
+'''
 # 从小爱同学api拿到消息, 这个api私货比较少
 
-
+'''
 async def xiaoice_reply(url):
     async with AsyncClient() as client:
         res = (await client.get(url)).json()
@@ -117,8 +118,9 @@ async def xiaoice_reply(url):
             return (res["text"]).replace("小爱", Bot_NICKNAME)
         else:
             return "寄"
+'''
 
-
+'''
 # 判断传入的字符串中是否有url存在(我他娘的就不信这样还能输出广告?)
 def have_url(s: str) -> bool:
     index = s.find('.')     # 找到.的下标
@@ -133,8 +135,9 @@ def have_url(s: str) -> bool:
         return True
     else:               # 如果.前后不是字母则返回False
         return False
+'''
 
-
+'''
 def get_openai_reply(prompt:str)->str:
     openai.api_key = api_key
     response = openai.Completion.create(
@@ -151,3 +154,4 @@ def get_openai_reply(prompt:str)->str:
     while res.startswith("\n"):
         res = res[1:]
     return res
+'''

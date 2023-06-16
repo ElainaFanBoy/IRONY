@@ -3096,7 +3096,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 1
+                "good_night": 0
             },
             "weekly": {
                 "sleeping_king": ""
@@ -3141,11 +3141,11 @@
         "3205910571": {
             "daily": {
                 "morning_time": "2023-01-03 07:10:02",
-                "night_time": "2023-06-13 00:38:57"
+                "night_time": "2023-06-15 00:26:31"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 2,
+                "weekly_night_count": 3,
                 "weekly_sleep": [
                     0,
                     0,
@@ -3165,7 +3165,7 @@
             },
             "total": {
                 "morning_count": 32,
-                "night_count": 60,
+                "night_count": 61,
                 "total_sleep": [
                     2,
                     9,
@@ -6165,11 +6165,11 @@
         "1091855413": {
             "daily": {
                 "morning_time": "2023-06-07 09:50:30",
-                "night_time": "2023-05-23 00:57:44"
+                "night_time": "2023-06-15 00:44:39"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -6189,7 +6189,7 @@
             },
             "total": {
                 "morning_count": 4,
-                "night_count": 5,
+                "night_count": 6,
                 "total_sleep": [
                     0,
                     1,
@@ -6453,11 +6453,11 @@
         "1650033618": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-03 00:54:28"
+                "night_time": "2023-06-15 00:45:00"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -6477,7 +6477,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 2,
+                "night_count": 3,
                 "total_sleep": [
                     0,
                     0,
@@ -6834,6 +6834,42 @@
                 ],
                 "lastweek_earliest_morning_time": 0,
                 "lastweek_latest_night_time": "2023-06-07 04:10:01"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "3169133064": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-15 00:44:39"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-15 00:44:39"
             },
             "total": {
                 "morning_count": 0,
@@ -8188,17 +8224,17 @@
         },
         "3340991285": {
             "daily": {
-                "morning_time": "2023-06-13 08:44:42",
-                "night_time": "2023-06-13 00:07:13"
+                "morning_time": "2023-06-16 06:30:09",
+                "night_time": "2023-06-16 00:08:42"
             },
             "weekly": {
-                "weekly_morning_count": 1,
-                "weekly_night_count": 1,
+                "weekly_morning_count": 4,
+                "weekly_night_count": 3,
                 "weekly_sleep": [
                     0,
-                    8,
-                    37,
-                    29
+                    23,
+                    30,
+                    33
                 ],
                 "lastweek_morning_count": 6,
                 "lastweek_night_count": 4,
@@ -8212,13 +8248,13 @@
                 "lastweek_latest_night_time": "2023-02-02 23:58:25"
             },
             "total": {
-                "morning_count": 156,
-                "night_count": 146,
+                "morning_count": 159,
+                "night_count": 148,
                 "total_sleep": [
                     44,
-                    0,
-                    48,
-                    6
+                    15,
+                    41,
+                    10
                 ]
             }
         },
@@ -8260,17 +8296,17 @@
         },
         "3038779326": {
             "daily": {
-                "morning_time": "2023-06-13 08:40:10",
-                "night_time": "2023-06-12 23:28:12"
+                "morning_time": "2023-06-16 08:20:34",
+                "night_time": "2023-06-15 22:32:21"
             },
             "weekly": {
-                "weekly_morning_count": 1,
-                "weekly_night_count": 1,
+                "weekly_morning_count": 4,
+                "weekly_night_count": 3,
                 "weekly_sleep": [
-                    0,
-                    9,
-                    11,
-                    58
+                    1,
+                    4,
+                    23,
+                    51
                 ],
                 "lastweek_morning_count": 8,
                 "lastweek_night_count": 7,
@@ -8284,13 +8320,13 @@
                 "lastweek_latest_night_time": "2023-03-15 23:43:00"
             },
             "total": {
-                "morning_count": 83,
-                "night_count": 86,
+                "morning_count": 86,
+                "night_count": 88,
                 "total_sleep": [
-                    27,
-                    18,
-                    33,
-                    27
+                    28,
+                    13,
+                    45,
+                    20
                 ]
             }
         },
@@ -9505,7 +9541,7 @@
     "1013938637": {
         "group_count": {
             "daily": {
-                "good_morning": 0,
+                "good_morning": 1,
                 "good_night": 0
             },
             "weekly": {
@@ -9586,11 +9622,11 @@
         },
         "1624432234": {
             "daily": {
-                "morning_time": "2023-03-23 07:52:44",
+                "morning_time": "2023-06-16 09:06:49",
                 "night_time": "2023-03-30 22:57:30"
             },
             "weekly": {
-                "weekly_morning_count": 0,
+                "weekly_morning_count": 1,
                 "weekly_night_count": 0,
                 "weekly_sleep": [
                     0,
@@ -9610,7 +9646,7 @@
                 "lastweek_latest_night_time": "2022-11-01 23:45:35"
             },
             "total": {
-                "morning_count": 53,
+                "morning_count": 54,
                 "night_count": 49,
                 "total_sleep": [
                     14,
@@ -14220,8 +14256,8 @@
     "599342755": {
         "group_count": {
             "daily": {
-                "good_morning": 4,
-                "good_night": 9
+                "good_morning": 2,
+                "good_night": 2
             },
             "weekly": {
                 "sleeping_king": "2579498272"
@@ -14301,17 +14337,17 @@
         },
         "2498646335": {
             "daily": {
-                "morning_time": "2023-06-13 06:37:46",
-                "night_time": "2023-06-11 23:22:34"
+                "morning_time": "2023-06-15 06:02:08",
+                "night_time": "2023-06-14 23:11:12"
             },
             "weekly": {
-                "weekly_morning_count": 1,
-                "weekly_night_count": 0,
+                "weekly_morning_count": 2,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
-                    0,
-                    0,
-                    0
+                    6,
+                    50,
+                    56
                 ],
                 "lastweek_morning_count": 1,
                 "lastweek_night_count": 1,
@@ -14325,13 +14361,13 @@
                 "lastweek_latest_night_time": "2023-02-12 23:56:41"
             },
             "total": {
-                "morning_count": 49,
-                "night_count": 96,
+                "morning_count": 50,
+                "night_count": 97,
                 "total_sleep": [
-                    10,
-                    23,
-                    13,
-                    48
+                    11,
+                    6,
+                    4,
+                    44
                 ]
             }
         },
@@ -14409,11 +14445,11 @@
         },
         "2581389653": {
             "daily": {
-                "morning_time": "2023-06-13 06:22:45",
+                "morning_time": "2023-06-14 06:12:25",
                 "night_time": "2023-06-04 00:27:09"
             },
             "weekly": {
-                "weekly_morning_count": 1,
+                "weekly_morning_count": 2,
                 "weekly_night_count": 0,
                 "weekly_sleep": [
                     0,
@@ -14433,7 +14469,7 @@
                 "lastweek_latest_night_time": "2023-01-30 23:59:12"
             },
             "total": {
-                "morning_count": 85,
+                "morning_count": 86,
                 "night_count": 151,
                 "total_sleep": [
                     20,
@@ -14518,11 +14554,11 @@
         "3370135373": {
             "daily": {
                 "morning_time": "2023-05-18 06:56:14",
-                "night_time": "2023-06-13 00:26:32"
+                "night_time": "2023-06-15 01:48:50"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 1,
+                "weekly_night_count": 2,
                 "weekly_sleep": [
                     0,
                     0,
@@ -14542,7 +14578,7 @@
             },
             "total": {
                 "morning_count": 1,
-                "night_count": 47,
+                "night_count": 48,
                 "total_sleep": [
                     0,
                     6,
@@ -14806,11 +14842,11 @@
         "3607497376": {
             "daily": {
                 "morning_time": "2023-03-26 08:29:33",
-                "night_time": "2023-06-12 21:59:31"
+                "night_time": "2023-06-13 22:09:54"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 1,
+                "weekly_night_count": 2,
                 "weekly_sleep": [
                     0,
                     0,
@@ -14830,7 +14866,7 @@
             },
             "total": {
                 "morning_count": 4,
-                "night_count": 66,
+                "night_count": 67,
                 "total_sleep": [
                     1,
                     2,
@@ -15273,11 +15309,11 @@
         },
         "3616825021": {
             "daily": {
-                "morning_time": "2023-06-11 06:09:49",
+                "morning_time": "2023-06-15 06:14:17",
                 "night_time": "2023-06-10 21:23:14"
             },
             "weekly": {
-                "weekly_morning_count": 0,
+                "weekly_morning_count": 2,
                 "weekly_night_count": 0,
                 "weekly_sleep": [
                     0,
@@ -15297,7 +15333,7 @@
                 "lastweek_latest_night_time": "2022-12-22 23:30:55"
             },
             "total": {
-                "morning_count": 14,
+                "morning_count": 16,
                 "night_count": 28,
                 "total_sleep": [
                     2,
@@ -15454,11 +15490,11 @@
         "351258895": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-12 23:17:28"
+                "night_time": "2023-06-14 22:19:50"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 1,
+                "weekly_night_count": 2,
                 "weekly_sleep": [
                     0,
                     0,
@@ -15478,7 +15514,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 166,
+                "night_count": 167,
                 "total_sleep": [
                     0,
                     0,
@@ -16029,17 +16065,17 @@
         },
         "2579498272": {
             "daily": {
-                "morning_time": "2023-06-13 06:45:06",
-                "night_time": "2023-06-12 21:13:58"
+                "morning_time": "2023-06-16 06:44:11",
+                "night_time": "2023-06-15 21:14:19"
             },
             "weekly": {
-                "weekly_morning_count": 1,
-                "weekly_night_count": 1,
+                "weekly_morning_count": 4,
+                "weekly_night_count": 4,
                 "weekly_sleep": [
-                    0,
-                    9,
-                    31,
-                    8
+                    1,
+                    14,
+                    10,
+                    7
                 ],
                 "lastweek_morning_count": 6,
                 "lastweek_night_count": 5,
@@ -16053,13 +16089,13 @@
                 "lastweek_latest_night_time": "2023-01-30 23:38:57"
             },
             "total": {
-                "morning_count": 127,
-                "night_count": 133,
+                "morning_count": 130,
+                "night_count": 136,
                 "total_sleep": [
-                    47,
-                    15,
-                    47,
-                    1
+                    48,
+                    20,
+                    26,
+                    0
                 ]
             }
         },
@@ -16282,11 +16318,11 @@
         "3108778146": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-11 21:51:17"
+                "night_time": "2023-06-14 00:32:56"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -16306,7 +16342,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 5,
+                "night_count": 6,
                 "total_sleep": [
                     0,
                     0,
@@ -16317,17 +16353,17 @@
         },
         "2309473986": {
             "daily": {
-                "morning_time": "2023-06-12 06:02:31",
-                "night_time": "2023-06-12 23:38:19"
+                "morning_time": "2023-06-16 06:14:21",
+                "night_time": "2023-06-15 21:44:04"
             },
             "weekly": {
-                "weekly_morning_count": 0,
-                "weekly_night_count": 2,
+                "weekly_morning_count": 2,
+                "weekly_night_count": 4,
                 "weekly_sleep": [
                     0,
-                    0,
-                    0,
-                    0
+                    8,
+                    30,
+                    17
                 ],
                 "lastweek_morning_count": 1,
                 "lastweek_night_count": 6,
@@ -16341,13 +16377,13 @@
                 "lastweek_latest_night_time": "2023-04-04 23:49:22"
             },
             "total": {
-                "morning_count": 40,
-                "night_count": 81,
+                "morning_count": 42,
+                "night_count": 83,
                 "total_sleep": [
                     12,
-                    8,
-                    48,
-                    24
+                    17,
+                    18,
+                    41
                 ]
             }
         },
@@ -16498,11 +16534,11 @@
         "2463785879": {
             "daily": {
                 "morning_time": "2023-06-13 06:28:22",
-                "night_time": "2023-06-13 05:25:14"
+                "night_time": "2023-06-15 05:16:01"
             },
             "weekly": {
                 "weekly_morning_count": 1,
-                "weekly_night_count": 1,
+                "weekly_night_count": 2,
                 "weekly_sleep": [
                     0,
                     1,
@@ -16522,7 +16558,7 @@
             },
             "total": {
                 "morning_count": 5,
-                "night_count": 8,
+                "night_count": 9,
                 "total_sleep": [
                     1,
                     0,
@@ -16555,6 +16591,42 @@
                 ],
                 "lastweek_earliest_morning_time": 0,
                 "lastweek_latest_night_time": "2023-06-08 00:57:02"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "2473173374": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-15 01:55:19"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-15 01:55:19"
             },
             "total": {
                 "morning_count": 0,
@@ -23265,7 +23337,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 0
+                "good_night": 2
             },
             "weekly": {
                 "sleeping_king": ""
@@ -23778,11 +23850,11 @@
         "3553237819": {
             "daily": {
                 "morning_time": "2023-06-04 10:14:31",
-                "night_time": "2023-06-11 23:11:27"
+                "night_time": "2023-06-15 21:57:12"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 2,
                 "weekly_sleep": [
                     0,
                     0,
@@ -23802,7 +23874,7 @@
             },
             "total": {
                 "morning_count": 12,
-                "night_count": 124,
+                "night_count": 126,
                 "total_sleep": [
                     3,
                     23,
@@ -24318,11 +24390,11 @@
         "1715568146": {
             "daily": {
                 "morning_time": "2023-01-25 08:02:35",
-                "night_time": "2023-06-10 22:49:02"
+                "night_time": "2023-06-15 23:05:27"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -24342,7 +24414,7 @@
             },
             "total": {
                 "morning_count": 1,
-                "night_count": 18,
+                "night_count": 19,
                 "total_sleep": [
                     0,
                     0,
@@ -49123,7 +49195,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 0
+                "good_night": 2
             },
             "weekly": {
                 "sleeping_king": ""
@@ -49204,11 +49276,11 @@
         "826725842": {
             "daily": {
                 "morning_time": "2023-04-27 10:25:23",
-                "night_time": "2023-06-12 02:22:18"
+                "night_time": "2023-06-16 00:05:45"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 1,
+                "weekly_night_count": 4,
                 "weekly_sleep": [
                     0,
                     0,
@@ -49228,7 +49300,7 @@
             },
             "total": {
                 "morning_count": 1,
-                "night_count": 195,
+                "night_count": 198,
                 "total_sleep": [
                     0,
                     10,
@@ -49420,11 +49492,11 @@
         "1795258449": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-11 00:00:36"
+                "night_time": "2023-06-16 00:03:55"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -49444,7 +49516,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 42,
+                "night_count": 43,
                 "total_sleep": [
                     0,
                     0,
@@ -50161,6 +50233,42 @@
                 ],
                 "lastweek_earliest_morning_time": 0,
                 "lastweek_latest_night_time": "2023-05-24 00:14:15"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "1250989199": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-15 03:29:01"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-15 03:29:01"
             },
             "total": {
                 "morning_count": 0,
@@ -56510,7 +56618,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 1
+                "good_night": 0
             },
             "weekly": {
                 "sleeping_king": ""
@@ -56843,11 +56951,11 @@
         "867871766": {
             "daily": {
                 "morning_time": "2023-05-03 08:46:51",
-                "night_time": "2023-06-07 02:06:38"
+                "night_time": "2023-06-15 01:25:41"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -56867,7 +56975,7 @@
             },
             "total": {
                 "morning_count": 1,
-                "night_count": 4,
+                "night_count": 5,
                 "total_sleep": [
                     0,
                     6,
@@ -62374,7 +62482,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 1
+                "good_night": 0
             },
             "weekly": {
                 "sleeping_king": ""
@@ -63241,11 +63349,11 @@
         "2130089989": {
             "daily": {
                 "morning_time": "2023-04-01 06:35:59",
-                "night_time": "2023-06-06 21:30:30"
+                "night_time": "2023-06-14 22:56:48"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -63265,7 +63373,7 @@
             },
             "total": {
                 "morning_count": 1,
-                "night_count": 22,
+                "night_count": 23,
                 "total_sleep": [
                     0,
                     0,
@@ -63456,17 +63564,17 @@
         },
         "1216089843": {
             "daily": {
-                "morning_time": "2023-06-10 07:13:22",
-                "night_time": "2023-06-12 22:24:42"
+                "morning_time": "2023-06-15 07:23:50",
+                "night_time": "2023-06-15 22:57:40"
             },
             "weekly": {
-                "weekly_morning_count": 0,
-                "weekly_night_count": 1,
+                "weekly_morning_count": 1,
+                "weekly_night_count": 4,
                 "weekly_sleep": [
                     0,
-                    0,
-                    0,
-                    0
+                    8,
+                    27,
+                    35
                 ],
                 "lastweek_morning_count": 6,
                 "lastweek_night_count": 5,
@@ -63480,13 +63588,13 @@
                 "lastweek_latest_night_time": "2023-05-27 23:34:00"
             },
             "total": {
-                "morning_count": 34,
-                "night_count": 31,
+                "morning_count": 35,
+                "night_count": 34,
                 "total_sleep": [
                     7,
-                    2,
-                    5,
-                    25
+                    10,
+                    33,
+                    0
                 ]
             }
         },
@@ -63853,11 +63961,11 @@
         "2778486337": {
             "daily": {
                 "morning_time": "2023-01-04 06:46:10",
-                "night_time": "2023-02-05 00:46:14"
+                "night_time": "2023-06-14 23:10:48"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -63877,7 +63985,7 @@
             },
             "total": {
                 "morning_count": 4,
-                "night_count": 6,
+                "night_count": 7,
                 "total_sleep": [
                     0,
                     15,
@@ -63961,11 +64069,11 @@
         "3512651982": {
             "daily": {
                 "morning_time": "2023-02-06 07:04:11",
-                "night_time": "2023-02-10 00:05:22"
+                "night_time": "2023-06-14 22:57:44"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -63985,7 +64093,7 @@
             },
             "total": {
                 "morning_count": 9,
-                "night_count": 14,
+                "night_count": 15,
                 "total_sleep": [
                     2,
                     9,
@@ -69868,7 +69976,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 0
+                "good_night": 1
             },
             "weekly": {
                 "sleeping_king": ""
@@ -70237,11 +70345,11 @@
         "1453712672": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-02-16 01:58:08"
+                "night_time": "2023-06-16 00:58:36"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -70261,7 +70369,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 1,
+                "night_count": 2,
                 "total_sleep": [
                     0,
                     0,
@@ -71836,7 +71944,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 1
+                "good_night": 0
             },
             "weekly": {
                 "sleeping_king": ""
@@ -77592,11 +77700,11 @@
         "307428169": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-12 22:40:28"
+                "night_time": "2023-06-15 23:06:50"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 1,
+                "weekly_night_count": 3,
                 "weekly_sleep": [
                     0,
                     0,
@@ -77616,7 +77724,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 64,
+                "night_count": 66,
                 "total_sleep": [
                     0,
                     0,
@@ -82258,8 +82366,8 @@
     "590946848": {
         "group_count": {
             "daily": {
-                "good_morning": 8,
-                "good_night": 8
+                "good_morning": 2,
+                "good_night": 4
             },
             "weekly": {
                 "sleeping_king": "1541910021"
@@ -82304,11 +82412,11 @@
         "1541910021": {
             "daily": {
                 "morning_time": "2023-06-13 06:39:04",
-                "night_time": "2023-06-12 22:07:28"
+                "night_time": "2023-06-15 23:05:41"
             },
             "weekly": {
                 "weekly_morning_count": 2,
-                "weekly_night_count": 1,
+                "weekly_night_count": 2,
                 "weekly_sleep": [
                     0,
                     16,
@@ -82328,7 +82436,7 @@
             },
             "total": {
                 "morning_count": 32,
-                "night_count": 54,
+                "night_count": 55,
                 "total_sleep": [
                     9,
                     23,
@@ -83743,11 +83851,11 @@
         },
         "2954657939": {
             "daily": {
-                "morning_time": "2023-06-13 06:00:09",
+                "morning_time": "2023-06-15 06:00:10",
                 "night_time": "2023-06-13 00:00:23"
             },
             "weekly": {
-                "weekly_morning_count": 1,
+                "weekly_morning_count": 2,
                 "weekly_night_count": 2,
                 "weekly_sleep": [
                     0,
@@ -83767,7 +83875,7 @@
                 "lastweek_latest_night_time": "2023-04-24 23:59:59"
             },
             "total": {
-                "morning_count": 55,
+                "morning_count": 56,
                 "night_count": 72,
                 "total_sleep": [
                     13,
@@ -83851,11 +83959,11 @@
         },
         "425376808": {
             "daily": {
-                "morning_time": "2023-06-13 06:38:57",
+                "morning_time": "2023-06-14 06:15:44",
                 "night_time": "2023-06-13 00:41:10"
             },
             "weekly": {
-                "weekly_morning_count": 1,
+                "weekly_morning_count": 2,
                 "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
@@ -83875,7 +83983,7 @@
                 "lastweek_latest_night_time": "2023-06-11 23:31:34"
             },
             "total": {
-                "morning_count": 9,
+                "morning_count": 10,
                 "night_count": 11,
                 "total_sleep": [
                     1,
@@ -84499,11 +84607,11 @@
         },
         "3272249594": {
             "daily": {
-                "morning_time": "2023-06-13 10:11:39",
+                "morning_time": "2023-06-16 10:03:37",
                 "night_time": "2023-05-28 01:28:51"
             },
             "weekly": {
-                "weekly_morning_count": 3,
+                "weekly_morning_count": 6,
                 "weekly_night_count": 0,
                 "weekly_sleep": [
                     0,
@@ -84523,7 +84631,7 @@
                 "lastweek_latest_night_time": "2023-05-28 01:28:51"
             },
             "total": {
-                "morning_count": 14,
+                "morning_count": 17,
                 "night_count": 2,
                 "total_sleep": [
                     0,
@@ -84572,11 +84680,11 @@
         "1120000211": {
             "daily": {
                 "morning_time": "2023-06-07 07:13:46",
-                "night_time": "2023-06-12 22:07:23"
+                "night_time": "2023-06-14 21:43:04"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 1,
+                "weekly_night_count": 3,
                 "weekly_sleep": [
                     0,
                     0,
@@ -84596,7 +84704,7 @@
             },
             "total": {
                 "morning_count": 3,
-                "night_count": 10,
+                "night_count": 12,
                 "total_sleep": [
                     1,
                     1,
@@ -84680,11 +84788,11 @@
         "3425648943": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-12 22:07:25"
+                "night_time": "2023-06-13 22:09:14"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 1,
+                "weekly_night_count": 2,
                 "weekly_sleep": [
                     0,
                     0,
@@ -84704,7 +84812,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 6,
+                "night_count": 7,
                 "total_sleep": [
                     0,
                     0,
@@ -84751,12 +84859,12 @@
         },
         "1738444090": {
             "daily": {
-                "morning_time": "2023-06-13 06:35:28",
-                "night_time": "2023-06-12 23:20:50"
+                "morning_time": "2023-06-14 06:38:32",
+                "night_time": "2023-06-15 23:05:35"
             },
             "weekly": {
-                "weekly_morning_count": 1,
-                "weekly_night_count": 1,
+                "weekly_morning_count": 2,
+                "weekly_night_count": 2,
                 "weekly_sleep": [
                     0,
                     7,
@@ -84775,8 +84883,8 @@
                 "lastweek_latest_night_time": "2023-06-12 23:20:50"
             },
             "total": {
-                "morning_count": 3,
-                "night_count": 4,
+                "morning_count": 4,
+                "night_count": 5,
                 "total_sleep": [
                     0,
                     23,
@@ -84845,6 +84953,114 @@
                 ],
                 "lastweek_earliest_morning_time": 0,
                 "lastweek_latest_night_time": "2023-06-12 22:15:14"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "3281937495": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-14 21:43:48"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-14 21:43:48"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "2646018947": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-15 23:07:39"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-15 23:07:39"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "2071634849": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-15 23:15:08"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-15 23:15:08"
             },
             "total": {
                 "morning_count": 0,
@@ -91640,7 +91856,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 1,
-                "good_night": 3
+                "good_night": 4
             },
             "weekly": {
                 "sleeping_king": "3332674125"
@@ -91684,17 +91900,17 @@
         },
         "3332674125": {
             "daily": {
-                "morning_time": "2023-06-07 09:14:17",
-                "night_time": "2023-06-12 23:09:53"
+                "morning_time": "2023-06-16 07:14:44",
+                "night_time": "2023-06-14 00:35:30"
             },
             "weekly": {
-                "weekly_morning_count": 0,
-                "weekly_night_count": 2,
+                "weekly_morning_count": 2,
+                "weekly_night_count": 3,
                 "weekly_sleep": [
                     0,
-                    0,
-                    0,
-                    0
+                    7,
+                    56,
+                    22
                 ],
                 "lastweek_morning_count": 3,
                 "lastweek_night_count": 2,
@@ -91708,24 +91924,24 @@
                 "lastweek_latest_night_time": "2023-02-26 23:58:57"
             },
             "total": {
-                "morning_count": 19,
-                "night_count": 46,
+                "morning_count": 21,
+                "night_count": 47,
                 "total_sleep": [
-                    3,
-                    23,
-                    6,
-                    6
+                    4,
+                    7,
+                    2,
+                    28
                 ]
             }
         },
         "1140424732": {
             "daily": {
                 "morning_time": "2023-06-13 06:20:47",
-                "night_time": "2023-06-12 23:10:01"
+                "night_time": "2023-06-15 23:50:18"
             },
             "weekly": {
                 "weekly_morning_count": 1,
-                "weekly_night_count": 1,
+                "weekly_night_count": 3,
                 "weekly_sleep": [
                     0,
                     7,
@@ -91745,7 +91961,7 @@
             },
             "total": {
                 "morning_count": 9,
-                "night_count": 53,
+                "night_count": 55,
                 "total_sleep": [
                     1,
                     12,
@@ -91973,11 +92189,11 @@
         "3527794318": {
             "daily": {
                 "morning_time": "2023-06-11 09:00:09",
-                "night_time": "2023-06-10 22:21:34"
+                "night_time": "2023-06-15 23:53:12"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 3,
                 "weekly_sleep": [
                     0,
                     0,
@@ -91997,7 +92213,7 @@
             },
             "total": {
                 "morning_count": 4,
-                "night_count": 17,
+                "night_count": 20,
                 "total_sleep": [
                     0,
                     17,
@@ -92081,11 +92297,11 @@
         "577089449": {
             "daily": {
                 "morning_time": "2023-05-05 08:57:24",
-                "night_time": "2023-06-09 00:46:11"
+                "night_time": "2023-06-15 21:46:57"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -92105,7 +92321,7 @@
             },
             "total": {
                 "morning_count": 4,
-                "night_count": 16,
+                "night_count": 17,
                 "total_sleep": [
                     1,
                     4,
@@ -92117,11 +92333,11 @@
         "212562053": {
             "daily": {
                 "morning_time": "2023-06-12 06:15:15",
-                "night_time": "2023-06-12 23:10:25"
+                "night_time": "2023-06-15 23:52:36"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 1,
+                "weekly_night_count": 2,
                 "weekly_sleep": [
                     0,
                     0,
@@ -92137,11 +92353,11 @@
                     0
                 ],
                 "lastweek_earliest_morning_time": "2023-06-12 06:15:15",
-                "lastweek_latest_night_time": "2023-06-12 23:10:25"
+                "lastweek_latest_night_time": "2023-06-15 23:52:36"
             },
             "total": {
                 "morning_count": 1,
-                "night_count": 2,
+                "night_count": 3,
                 "total_sleep": [
                     0,
                     0,
@@ -92620,11 +92836,11 @@
         },
         "1974212183": {
             "daily": {
-                "morning_time": "2023-05-23 07:37:26",
+                "morning_time": "2023-06-14 08:39:23",
                 "night_time": "2023-05-22 22:16:26"
             },
             "weekly": {
-                "weekly_morning_count": 0,
+                "weekly_morning_count": 1,
                 "weekly_night_count": 0,
                 "weekly_sleep": [
                     0,
@@ -92644,7 +92860,7 @@
                 "lastweek_latest_night_time": "2023-05-22 22:16:26"
             },
             "total": {
-                "morning_count": 1,
+                "morning_count": 2,
                 "night_count": 1,
                 "total_sleep": [
                     0,
@@ -93531,7 +93747,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 2
+                "good_night": 0
             },
             "weekly": {
                 "sleeping_king": ""
@@ -94190,7 +94406,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 0
+                "good_night": 1
             },
             "weekly": {
                 "sleeping_king": ""
@@ -94415,11 +94631,11 @@
         "765973473": {
             "daily": {
                 "morning_time": "2023-03-22 09:36:41",
-                "night_time": "2023-05-17 00:09:34"
+                "night_time": "2023-06-14 23:48:47"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -94435,11 +94651,11 @@
                     0
                 ],
                 "lastweek_earliest_morning_time": "2023-03-22 09:36:41",
-                "lastweek_latest_night_time": "2023-03-14 23:30:51"
+                "lastweek_latest_night_time": "2023-06-14 23:48:47"
             },
             "total": {
                 "morning_count": 1,
-                "night_count": 10,
+                "night_count": 11,
                 "total_sleep": [
                     0,
                     0,
@@ -94451,11 +94667,11 @@
         "342059379": {
             "daily": {
                 "morning_time": "2023-03-03 06:49:56",
-                "night_time": "2023-02-22 00:24:34"
+                "night_time": "2023-06-16 01:38:19"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -94471,11 +94687,11 @@
                     0
                 ],
                 "lastweek_earliest_morning_time": "2023-03-03 06:49:56",
-                "lastweek_latest_night_time": "2023-02-22 00:24:34"
+                "lastweek_latest_night_time": "2023-06-16 01:38:19"
             },
             "total": {
                 "morning_count": 1,
-                "night_count": 1,
+                "night_count": 2,
                 "total_sleep": [
                     0,
                     0,
@@ -95217,7 +95433,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 0
+                "good_night": 1
             },
             "weekly": {
                 "sleeping_king": ""
@@ -95334,11 +95550,11 @@
         "2287275474": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-03-10 01:30:39"
+                "night_time": "2023-06-16 01:52:39"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -95358,7 +95574,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 3,
+                "night_count": 4,
                 "total_sleep": [
                     0,
                     0,
@@ -96255,7 +96471,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 0
+                "good_night": 1
             },
             "weekly": {
                 "sleeping_king": ""
@@ -96300,11 +96516,11 @@
         "2696733056": {
             "daily": {
                 "morning_time": "2023-05-01 11:05:37",
-                "night_time": "2023-06-04 00:56:06"
+                "night_time": "2023-06-15 23:00:28"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -96324,7 +96540,7 @@
             },
             "total": {
                 "morning_count": 1,
-                "night_count": 10,
+                "night_count": 11,
                 "total_sleep": [
                     0,
                     0,
@@ -97006,11 +97222,11 @@
         "1784331468": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-05-08 00:51:08"
+                "night_time": "2023-06-13 23:21:17"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -97026,11 +97242,11 @@
                     0
                 ],
                 "lastweek_earliest_morning_time": 0,
-                "lastweek_latest_night_time": "2023-04-06 21:51:00"
+                "lastweek_latest_night_time": "2023-06-13 23:21:17"
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 4,
+                "night_count": 5,
                 "total_sleep": [
                     0,
                     0,
@@ -97187,8 +97403,8 @@
     "253472897": {
         "group_count": {
             "daily": {
-                "good_morning": 0,
-                "good_night": 0
+                "good_morning": 1,
+                "good_night": 1
             },
             "weekly": {
                 "sleeping_king": "2806028917"
@@ -97232,17 +97448,17 @@
         },
         "2806028917": {
             "daily": {
-                "morning_time": "2023-06-07 07:33:50",
-                "night_time": "2023-06-07 00:38:29"
+                "morning_time": "2023-06-16 06:14:08",
+                "night_time": "2023-06-15 22:49:02"
             },
             "weekly": {
-                "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_morning_count": 2,
+                "weekly_night_count": 3,
                 "weekly_sleep": [
                     0,
-                    0,
-                    0,
-                    0
+                    13,
+                    41,
+                    42
                 ],
                 "lastweek_morning_count": 2,
                 "lastweek_night_count": 3,
@@ -97252,17 +97468,17 @@
                     2,
                     0
                 ],
-                "lastweek_earliest_morning_time": "2023-06-03 06:37:11",
+                "lastweek_earliest_morning_time": "2023-06-14 06:13:09",
                 "lastweek_latest_night_time": "2023-04-07 23:57:26"
             },
             "total": {
-                "morning_count": 14,
-                "night_count": 46,
+                "morning_count": 16,
+                "night_count": 49,
                 "total_sleep": [
-                    4,
-                    16,
-                    26,
-                    9
+                    5,
+                    6,
+                    7,
+                    51
                 ]
             }
         },
@@ -97305,11 +97521,11 @@
         "770341370": {
             "daily": {
                 "morning_time": "2023-06-07 07:37:42",
-                "night_time": "2023-05-29 00:40:16"
+                "night_time": "2023-06-15 01:35:46"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -97329,7 +97545,7 @@
             },
             "total": {
                 "morning_count": 7,
-                "night_count": 8,
+                "night_count": 9,
                 "total_sleep": [
                     0,
                     0,
@@ -97451,7 +97667,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 1
+                "good_night": 2
             },
             "weekly": {
                 "sleeping_king": "3552501546"
@@ -97532,11 +97748,11 @@
         "3552501546": {
             "daily": {
                 "morning_time": "2023-06-10 06:22:53",
-                "night_time": "2023-06-12 23:00:04"
+                "night_time": "2023-06-14 23:14:46"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 1,
+                "weekly_night_count": 2,
                 "weekly_sleep": [
                     0,
                     0,
@@ -97556,7 +97772,7 @@
             },
             "total": {
                 "morning_count": 25,
-                "night_count": 53,
+                "night_count": 54,
                 "total_sleep": [
                     8,
                     19,
@@ -97604,11 +97820,11 @@
         "2160552817": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-05-27 22:22:06"
+                "night_time": "2023-06-15 21:49:35"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -97628,7 +97844,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 22,
+                "night_count": 23,
                 "total_sleep": [
                     0,
                     0,
@@ -97676,11 +97892,11 @@
         "2441760299": {
             "daily": {
                 "morning_time": "2023-03-19 09:19:49",
-                "night_time": "2023-06-11 23:27:24"
+                "night_time": "2023-06-15 23:00:43"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 2,
                 "weekly_sleep": [
                     0,
                     0,
@@ -97700,7 +97916,7 @@
             },
             "total": {
                 "morning_count": 1,
-                "night_count": 68,
+                "night_count": 70,
                 "total_sleep": [
                     0,
                     9,
@@ -99461,7 +99677,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 1,
-                "good_night": 1
+                "good_night": 0
             },
             "weekly": {
                 "sleeping_king": ""
@@ -99505,17 +99721,17 @@
         },
         "1330185927": {
             "daily": {
-                "morning_time": "2023-06-09 10:50:24",
-                "night_time": "2023-06-12 23:29:02"
+                "morning_time": "2023-06-16 08:46:02",
+                "night_time": "2023-06-14 21:20:31"
             },
             "weekly": {
-                "weekly_morning_count": 0,
-                "weekly_night_count": 1,
+                "weekly_morning_count": 2,
+                "weekly_night_count": 2,
                 "weekly_sleep": [
                     0,
-                    0,
-                    0,
-                    0
+                    9,
+                    37,
+                    20
                 ],
                 "lastweek_morning_count": 1,
                 "lastweek_night_count": 2,
@@ -99529,13 +99745,13 @@
                 "lastweek_latest_night_time": "2023-05-23 23:40:26"
             },
             "total": {
-                "morning_count": 9,
-                "night_count": 16,
+                "morning_count": 11,
+                "night_count": 17,
                 "total_sleep": [
                     0,
-                    11,
-                    50,
-                    12
+                    21,
+                    27,
+                    32
                 ]
             }
         },
@@ -100296,8 +100512,8 @@
     "790438338": {
         "group_count": {
             "daily": {
-                "good_morning": 2,
-                "good_night": 3
+                "good_morning": 3,
+                "good_night": 2
             },
             "weekly": {
                 "sleeping_king": "1020921562"
@@ -100377,17 +100593,17 @@
         },
         "625612481": {
             "daily": {
-                "morning_time": "2023-06-11 10:23:42",
-                "night_time": "2023-06-12 23:34:49"
+                "morning_time": "2023-06-15 07:53:41",
+                "night_time": "2023-06-15 02:01:23"
             },
             "weekly": {
-                "weekly_morning_count": 0,
-                "weekly_night_count": 1,
+                "weekly_morning_count": 1,
+                "weekly_night_count": 2,
                 "weekly_sleep": [
                     0,
-                    0,
-                    0,
-                    0
+                    5,
+                    52,
+                    18
                 ],
                 "lastweek_morning_count": 3,
                 "lastweek_night_count": 5,
@@ -100401,29 +100617,29 @@
                 "lastweek_latest_night_time": "2023-05-28 23:55:22"
             },
             "total": {
-                "morning_count": 29,
-                "night_count": 35,
+                "morning_count": 30,
+                "night_count": 36,
                 "total_sleep": [
                     8,
-                    13,
-                    34,
-                    30
+                    19,
+                    26,
+                    48
                 ]
             }
         },
         "1020921562": {
             "daily": {
-                "morning_time": "2023-06-13 08:55:49",
-                "night_time": "2023-06-12 23:34:47"
+                "morning_time": "2023-06-16 08:50:15",
+                "night_time": "2023-06-16 00:41:22"
             },
             "weekly": {
-                "weekly_morning_count": 2,
-                "weekly_night_count": 2,
+                "weekly_morning_count": 11,
+                "weekly_night_count": 5,
                 "weekly_sleep": [
-                    0,
-                    18,
-                    15,
-                    5
+                    3,
+                    5,
+                    57,
+                    11
                 ],
                 "lastweek_morning_count": 10,
                 "lastweek_night_count": 7,
@@ -100437,29 +100653,29 @@
                 "lastweek_latest_night_time": "2023-05-28 23:53:18"
             },
             "total": {
-                "morning_count": 133,
-                "night_count": 77,
+                "morning_count": 142,
+                "night_count": 80,
                 "total_sleep": [
-                    37,
-                    21,
-                    2,
-                    5
+                    40,
+                    8,
+                    44,
+                    11
                 ]
             }
         },
         "3174231258": {
             "daily": {
-                "morning_time": "2023-06-08 09:46:59",
-                "night_time": "2023-06-13 02:03:34"
+                "morning_time": "2023-06-16 07:54:45",
+                "night_time": "2023-06-16 01:29:53"
             },
             "weekly": {
-                "weekly_morning_count": 0,
-                "weekly_night_count": 2,
+                "weekly_morning_count": 3,
+                "weekly_night_count": 5,
                 "weekly_sleep": [
                     0,
-                    0,
-                    0,
-                    0
+                    18,
+                    10,
+                    45
                 ],
                 "lastweek_morning_count": 3,
                 "lastweek_night_count": 5,
@@ -100473,24 +100689,24 @@
                 "lastweek_latest_night_time": "2023-03-27 23:15:04"
             },
             "total": {
-                "morning_count": 43,
-                "night_count": 58,
+                "morning_count": 46,
+                "night_count": 61,
                 "total_sleep": [
                     12,
-                    4,
-                    6,
-                    48
+                    22,
+                    17,
+                    33
                 ]
             }
         },
         "1549486100": {
             "daily": {
                 "morning_time": "2023-05-30 07:38:38",
-                "night_time": "2023-06-06 02:36:24"
+                "night_time": "2023-06-15 03:33:31"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -100510,7 +100726,7 @@
             },
             "total": {
                 "morning_count": 10,
-                "night_count": 10,
+                "night_count": 11,
                 "total_sleep": [
                     0,
                     8,
@@ -100773,11 +100989,11 @@
         },
         "2044950750": {
             "daily": {
-                "morning_time": "2023-06-03 09:05:02",
+                "morning_time": "2023-06-15 09:19:51",
                 "night_time": "2023-06-07 23:00:38"
             },
             "weekly": {
-                "weekly_morning_count": 0,
+                "weekly_morning_count": 1,
                 "weekly_night_count": 0,
                 "weekly_sleep": [
                     0,
@@ -100797,7 +101013,7 @@
                 "lastweek_latest_night_time": "2023-06-07 23:00:38"
             },
             "total": {
-                "morning_count": 3,
+                "morning_count": 4,
                 "night_count": 7,
                 "total_sleep": [
                     0,
@@ -100992,7 +101208,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 1
+                "good_night": 0
             },
             "weekly": {
                 "sleeping_king": ""
@@ -101299,11 +101515,11 @@
         },
         "1742046253": {
             "daily": {
-                "morning_time": "2023-06-13 06:57:42",
+                "morning_time": "2023-06-16 06:23:43",
                 "night_time": "2023-06-05 23:21:04"
             },
             "weekly": {
-                "weekly_morning_count": 1,
+                "weekly_morning_count": 2,
                 "weekly_night_count": 0,
                 "weekly_sleep": [
                     0,
@@ -101319,11 +101535,11 @@
                     52,
                     0
                 ],
-                "lastweek_earliest_morning_time": "2023-06-08 06:24:39",
+                "lastweek_earliest_morning_time": "2023-06-16 06:23:43",
                 "lastweek_latest_night_time": "2023-06-05 23:21:04"
             },
             "total": {
-                "morning_count": 5,
+                "morning_count": 6,
                 "night_count": 1,
                 "total_sleep": [
                     0,
@@ -101338,7 +101554,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 0
+                "good_night": 1
             },
             "weekly": {
                 "sleeping_king": ""
@@ -101851,11 +102067,11 @@
         "1795503601": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-05-19 00:58:53"
+                "night_time": "2023-06-16 02:06:59"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -101871,11 +102087,11 @@
                     0
                 ],
                 "lastweek_earliest_morning_time": 0,
-                "lastweek_latest_night_time": "2023-05-19 00:58:53"
+                "lastweek_latest_night_time": "2023-06-16 02:06:59"
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 1,
+                "night_count": 2,
                 "total_sleep": [
                     0,
                     0,
@@ -105333,7 +105549,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 1
+                "good_night": 0
             },
             "weekly": {
                 "sleeping_king": ""
@@ -106264,11 +106480,11 @@
         "1528337329": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-13 01:46:23"
+                "night_time": "2023-06-16 00:39:50"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 2,
+                "weekly_night_count": 5,
                 "weekly_sleep": [
                     0,
                     0,
@@ -106288,7 +106504,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 53,
+                "night_count": 56,
                 "total_sleep": [
                     0,
                     0,
@@ -107007,7 +107223,7 @@
     "702552701": {
         "group_count": {
             "daily": {
-                "good_morning": 1,
+                "good_morning": 0,
                 "good_night": 0
             },
             "weekly": {
@@ -107255,11 +107471,11 @@
         "2286883586": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-01 03:29:35"
+                "night_time": "2023-06-14 04:31:22"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -107279,7 +107495,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 4,
+                "night_count": 5,
                 "total_sleep": [
                     0,
                     0,
@@ -107364,8 +107580,8 @@
     "790926823": {
         "group_count": {
             "daily": {
-                "good_morning": 1,
-                "good_night": 0
+                "good_morning": 0,
+                "good_night": 1
             },
             "weekly": {
                 "sleeping_king": ""
@@ -107373,12 +107589,12 @@
         },
         "2171784309": {
             "daily": {
-                "morning_time": "2023-06-13 08:45:00",
-                "night_time": "2023-06-05 00:48:27"
+                "morning_time": "2023-06-14 07:51:52",
+                "night_time": "2023-06-15 23:17:33"
             },
             "weekly": {
-                "weekly_morning_count": 1,
-                "weekly_night_count": 0,
+                "weekly_morning_count": 2,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -107394,11 +107610,11 @@
                     0
                 ],
                 "lastweek_earliest_morning_time": "2023-04-26 06:01:31",
-                "lastweek_latest_night_time": "2023-04-28 03:06:32"
+                "lastweek_latest_night_time": "2023-06-15 23:17:33"
             },
             "total": {
-                "morning_count": 17,
-                "night_count": 18,
+                "morning_count": 18,
+                "night_count": 19,
                 "total_sleep": [
                     4,
                     2,
@@ -107638,8 +107854,8 @@
     "685617554": {
         "group_count": {
             "daily": {
-                "good_morning": 0,
-                "good_night": 0
+                "good_morning": 2,
+                "good_night": 7
             },
             "weekly": {
                 "sleeping_king": ""
@@ -108044,11 +108260,11 @@
         "2197153136": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-04-28 00:09:29"
+                "night_time": "2023-06-16 00:59:37"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -108064,11 +108280,11 @@
                     0
                 ],
                 "lastweek_earliest_morning_time": 0,
-                "lastweek_latest_night_time": "2023-04-28 00:09:29"
+                "lastweek_latest_night_time": "2023-06-16 00:59:37"
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 1,
+                "night_count": 2,
                 "total_sleep": [
                     0,
                     0,
@@ -108188,11 +108404,11 @@
         "839076570": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-07 22:04:38"
+                "night_time": "2023-06-15 22:18:24"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -108212,7 +108428,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 14,
+                "night_count": 15,
                 "total_sleep": [
                     0,
                     0,
@@ -108692,11 +108908,11 @@
         "528419315": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-07 22:04:57"
+                "night_time": "2023-06-15 22:37:26"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -108716,7 +108932,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 3,
+                "night_count": 4,
                 "total_sleep": [
                     0,
                     0,
@@ -108929,6 +109145,150 @@
                 ],
                 "lastweek_earliest_morning_time": 0,
                 "lastweek_latest_night_time": "2023-06-11 01:43:48"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "2893330451": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-15 22:18:53"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-15 22:18:53"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "3204630181": {
+            "daily": {
+                "morning_time": "2023-06-16 06:28:38",
+                "night_time": "2023-06-15 22:19:10"
+            },
+            "weekly": {
+                "weekly_morning_count": 1,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    8,
+                    9,
+                    28
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": "2023-06-16 06:28:38",
+                "lastweek_latest_night_time": "2023-06-15 22:19:10"
+            },
+            "total": {
+                "morning_count": 1,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    8,
+                    9,
+                    28
+                ]
+            }
+        },
+        "2033652422": {
+            "daily": {
+                "morning_time": "2023-06-16 08:09:07",
+                "night_time": "2023-06-15 22:22:02"
+            },
+            "weekly": {
+                "weekly_morning_count": 1,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    9,
+                    47,
+                    5
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": "2023-06-16 08:09:07",
+                "lastweek_latest_night_time": "2023-06-15 22:22:02"
+            },
+            "total": {
+                "morning_count": 1,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    9,
+                    47,
+                    5
+                ]
+            }
+        },
+        "3443631991": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-15 22:50:42"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-15 22:50:42"
             },
             "total": {
                 "morning_count": 0,
@@ -110063,8 +110423,8 @@
     "615131063": {
         "group_count": {
             "daily": {
-                "good_morning": 1,
-                "good_night": 2
+                "good_morning": 0,
+                "good_night": 0
             },
             "weekly": {
                 "sleeping_king": ""
@@ -110565,7 +110925,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 2
+                "good_night": 0
             },
             "weekly": {
                 "sleeping_king": ""
@@ -110610,11 +110970,11 @@
         "2572324701": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-05 01:07:50"
+                "night_time": "2023-06-15 00:30:09"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -110634,7 +110994,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 2,
+                "night_count": 3,
                 "total_sleep": [
                     0,
                     0,
@@ -111111,11 +111471,11 @@
         "2422501385": {
             "daily": {
                 "morning_time": "2023-06-03 10:48:30",
-                "night_time": "2023-06-09 00:46:25"
+                "night_time": "2023-06-13 23:51:52"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -111131,11 +111491,11 @@
                     0
                 ],
                 "lastweek_earliest_morning_time": "2023-05-11 07:46:23",
-                "lastweek_latest_night_time": "2023-05-12 22:12:55"
+                "lastweek_latest_night_time": "2023-06-13 23:51:52"
             },
             "total": {
                 "morning_count": 4,
-                "night_count": 9,
+                "night_count": 10,
                 "total_sleep": [
                     1,
                     0,
@@ -111298,6 +111658,42 @@
                 ],
                 "lastweek_earliest_morning_time": 0,
                 "lastweek_latest_night_time": "2023-06-07 00:47:22"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "256421061": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-14 01:43:45"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-14 01:43:45"
             },
             "total": {
                 "morning_count": 0,
@@ -111935,7 +112331,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 1,
-                "good_night": 1
+                "good_night": 5
             },
             "weekly": {
                 "sleeping_king": ""
@@ -111944,11 +112340,11 @@
         "1580390140": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-05-26 23:18:05"
+                "night_time": "2023-06-16 01:50:10"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 3,
                 "weekly_sleep": [
                     0,
                     0,
@@ -111968,7 +112364,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 3,
+                "night_count": 6,
                 "total_sleep": [
                     0,
                     0,
@@ -111980,11 +112376,11 @@
         "3398987870": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-10 21:19:34"
+                "night_time": "2023-06-15 22:25:55"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -112004,7 +112400,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 4,
+                "night_count": 5,
                 "total_sleep": [
                     0,
                     0,
@@ -112052,11 +112448,11 @@
         "997533221": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-13 00:07:54"
+                "night_time": "2023-06-15 00:36:32"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 1,
+                "weekly_night_count": 3,
                 "weekly_sleep": [
                     0,
                     0,
@@ -112076,7 +112472,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 9,
+                "night_count": 11,
                 "total_sleep": [
                     0,
                     0,
@@ -112160,11 +112556,11 @@
         "857142650": {
             "daily": {
                 "morning_time": "2023-05-29 09:21:07",
-                "night_time": "2023-06-08 01:27:14"
+                "night_time": "2023-06-16 02:07:11"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -112184,7 +112580,7 @@
             },
             "total": {
                 "morning_count": 1,
-                "night_count": 8,
+                "night_count": 9,
                 "total_sleep": [
                     0,
                     0,
@@ -112592,11 +112988,11 @@
         "3625681236": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-10 01:29:26"
+                "night_time": "2023-06-16 00:21:22"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 2,
                 "weekly_sleep": [
                     0,
                     0,
@@ -112616,7 +113012,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 4,
+                "night_count": 6,
                 "total_sleep": [
                     0,
                     0,
@@ -112663,11 +113059,11 @@
         },
         "2991499506": {
             "daily": {
-                "morning_time": "2023-06-13 11:14:25",
+                "morning_time": "2023-06-16 10:04:45",
                 "night_time": "2023-06-06 02:36:03"
             },
             "weekly": {
-                "weekly_morning_count": 1,
+                "weekly_morning_count": 2,
                 "weekly_night_count": 0,
                 "weekly_sleep": [
                     0,
@@ -112687,7 +113083,7 @@
                 "lastweek_latest_night_time": "2023-06-02 03:00:36"
             },
             "total": {
-                "morning_count": 6,
+                "morning_count": 7,
                 "night_count": 5,
                 "total_sleep": [
                     0,
@@ -112952,11 +113348,11 @@
         "2622685280": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-07 02:56:43"
+                "night_time": "2023-06-14 02:33:49"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -112976,7 +113372,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 1,
+                "night_count": 2,
                 "total_sleep": [
                     0,
                     0,
@@ -112988,11 +113384,11 @@
         "2656147325": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-07 05:48:43"
+                "night_time": "2023-06-14 01:34:47"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -113012,7 +113408,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 1,
+                "night_count": 2,
                 "total_sleep": [
                     0,
                     0,
@@ -113081,6 +113477,78 @@
                 ],
                 "lastweek_earliest_morning_time": 0,
                 "lastweek_latest_night_time": "2023-06-12 01:04:26"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "3310005092": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-14 02:39:38"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-14 02:39:38"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "3495017800": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-16 01:02:23"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-16 01:02:23"
             },
             "total": {
                 "morning_count": 0,
@@ -113347,7 +113815,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 1
+                "good_night": 0
             },
             "weekly": {
                 "sleeping_king": ""
@@ -113403,11 +113871,11 @@
         "1194968965": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-07 21:40:58"
+                "night_time": "2023-06-13 21:52:18"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -113427,7 +113895,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 3,
+                "night_count": 4,
                 "total_sleep": [
                     0,
                     0,
@@ -113441,7 +113909,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 1
+                "good_night": 5
             },
             "weekly": {
                 "sleeping_king": ""
@@ -113590,58 +114058,11 @@
                     0
                 ]
             }
-        }
-    },
-    "683698736": {
-        "group_count": {
-            "daily": {
-                "good_morning": 0,
-                "good_night": 3
-            },
-            "weekly": {
-                "sleeping_king": ""
-            }
         },
-        "399552578": {
+        "3589376105": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-04 01:59:37"
-            },
-            "weekly": {
-                "weekly_morning_count": 0,
-                "weekly_night_count": 0,
-                "weekly_sleep": [
-                    0,
-                    0,
-                    0,
-                    0
-                ],
-                "lastweek_morning_count": 0,
-                "lastweek_night_count": 0,
-                "lastweek_sleep": [
-                    0,
-                    0,
-                    0,
-                    0
-                ],
-                "lastweek_earliest_morning_time": 0,
-                "lastweek_latest_night_time": "2023-06-04 01:59:37"
-            },
-            "total": {
-                "morning_count": 0,
-                "night_count": 1,
-                "total_sleep": [
-                    0,
-                    0,
-                    0,
-                    0
-                ]
-            }
-        },
-        "2538928696": {
-            "daily": {
-                "morning_time": 0,
-                "night_time": "2023-06-12 22:48:54"
+                "night_time": "2023-06-16 01:21:12"
             },
             "weekly": {
                 "weekly_morning_count": 0,
@@ -113661,11 +114082,238 @@
                     0
                 ],
                 "lastweek_earliest_morning_time": 0,
-                "lastweek_latest_night_time": "2023-06-12 22:48:54"
+                "lastweek_latest_night_time": "2023-06-16 01:21:12"
             },
             "total": {
                 "morning_count": 0,
                 "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "2690743214": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-16 01:21:51"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-16 01:21:51"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "3144765027": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-16 01:21:56"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-16 01:21:56"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "1305964412": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-16 01:21:57"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-16 01:21:57"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "1487708823": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-16 01:38:42"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-16 01:38:42"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        }
+    },
+    "683698736": {
+        "group_count": {
+            "daily": {
+                "good_morning": 0,
+                "good_night": 0
+            },
+            "weekly": {
+                "sleeping_king": ""
+            }
+        },
+        "399552578": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-14 01:39:44"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-04 01:59:37"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 2,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "2538928696": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-14 00:37:39"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 2,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-12 22:48:54"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 2,
                 "total_sleep": [
                     0,
                     0,
@@ -113713,11 +114361,11 @@
         "2257867282": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-12 22:49:26"
+                "night_time": "2023-06-14 01:43:56"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 1,
+                "weekly_night_count": 2,
                 "weekly_sleep": [
                     0,
                     0,
@@ -113737,7 +114385,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 1,
+                "night_count": 2,
                 "total_sleep": [
                     0,
                     0,
@@ -113751,7 +114399,7 @@
         "group_count": {
             "daily": {
                 "good_morning": 0,
-                "good_night": 0
+                "good_night": 1
             },
             "weekly": {
                 "sleeping_king": ""
@@ -114008,6 +114656,42 @@
                     0
                 ]
             }
+        },
+        "2644620566": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-16 01:48:15"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-16 01:48:15"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
         }
     },
     "777847835": {
@@ -114132,8 +114816,8 @@
     "782455300": {
         "group_count": {
             "daily": {
-                "good_morning": 1,
-                "good_night": 2
+                "good_morning": 9,
+                "good_night": 11
             },
             "weekly": {
                 "sleeping_king": "3096152319"
@@ -114141,12 +114825,12 @@
         },
         "1079891418": {
             "daily": {
-                "morning_time": 0,
-                "night_time": "2023-06-05 21:50:58"
+                "morning_time": "2023-06-16 06:44:01",
+                "night_time": "2023-06-13 22:43:17"
             },
             "weekly": {
-                "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_morning_count": 1,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -114161,12 +114845,12 @@
                     0,
                     0
                 ],
-                "lastweek_earliest_morning_time": 0,
-                "lastweek_latest_night_time": "2023-06-05 21:50:58"
+                "lastweek_earliest_morning_time": "2023-06-16 06:44:01",
+                "lastweek_latest_night_time": "2023-06-13 22:43:17"
             },
             "total": {
-                "morning_count": 0,
-                "night_count": 1,
+                "morning_count": 1,
+                "night_count": 2,
                 "total_sleep": [
                     0,
                     0,
@@ -114177,17 +114861,17 @@
         },
         "3096152319": {
             "daily": {
-                "morning_time": "2023-06-13 07:20:06",
-                "night_time": "2023-06-12 22:31:55"
+                "morning_time": "2023-06-16 06:17:45",
+                "night_time": "2023-06-15 22:33:57"
             },
             "weekly": {
-                "weekly_morning_count": 1,
-                "weekly_night_count": 1,
+                "weekly_morning_count": 4,
+                "weekly_night_count": 4,
                 "weekly_sleep": [
-                    0,
-                    8,
+                    1,
+                    7,
                     48,
-                    11
+                    56
                 ],
                 "lastweek_morning_count": 4,
                 "lastweek_night_count": 1,
@@ -114197,28 +114881,28 @@
                     8,
                     42
                 ],
-                "lastweek_earliest_morning_time": "2023-06-07 06:24:54",
-                "lastweek_latest_night_time": "2023-06-12 22:31:55"
+                "lastweek_earliest_morning_time": "2023-06-14 06:09:50",
+                "lastweek_latest_night_time": "2023-06-14 22:52:45"
             },
             "total": {
-                "morning_count": 5,
-                "night_count": 2,
+                "morning_count": 8,
+                "night_count": 5,
                 "total_sleep": [
-                    0,
-                    17,
-                    56,
-                    53
+                    1,
+                    16,
+                    57,
+                    38
                 ]
             }
         },
         "2650365732": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-05 21:52:07"
+                "night_time": "2023-06-13 22:35:39"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 0,
+                "weekly_night_count": 1,
                 "weekly_sleep": [
                     0,
                     0,
@@ -114234,11 +114918,11 @@
                     0
                 ],
                 "lastweek_earliest_morning_time": 0,
-                "lastweek_latest_night_time": "2023-06-05 21:52:07"
+                "lastweek_latest_night_time": "2023-06-13 22:35:39"
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 1,
+                "night_count": 2,
                 "total_sleep": [
                     0,
                     0,
@@ -114250,7 +114934,79 @@
         "929963611": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-12 21:54:38"
+                "night_time": "2023-06-14 22:56:12"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 2,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-14 22:56:12"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 2,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "1418139250": {
+            "daily": {
+                "morning_time": "2023-06-16 08:02:09",
+                "night_time": "2023-06-16 00:51:36"
+            },
+            "weekly": {
+                "weekly_morning_count": 1,
+                "weekly_night_count": 2,
+                "weekly_sleep": [
+                    0,
+                    7,
+                    10,
+                    33
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": "2023-06-16 08:02:09",
+                "lastweek_latest_night_time": "2023-06-13 22:35:27"
+            },
+            "total": {
+                "morning_count": 1,
+                "night_count": 2,
+                "total_sleep": [
+                    0,
+                    7,
+                    10,
+                    33
+                ]
+            }
+        },
+        "3191003419": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-13 22:43:49"
             },
             "weekly": {
                 "weekly_morning_count": 0,
@@ -114270,7 +115026,7 @@
                     0
                 ],
                 "lastweek_earliest_morning_time": 0,
-                "lastweek_latest_night_time": "2023-06-12 21:54:38"
+                "lastweek_latest_night_time": "2023-06-13 22:43:49"
             },
             "total": {
                 "morning_count": 0,
@@ -114280,6 +115036,330 @@
                     0,
                     0,
                     0
+                ]
+            }
+        },
+        "734313713": {
+            "daily": {
+                "morning_time": "2023-06-16 11:29:33",
+                "night_time": "2023-06-16 00:26:17"
+            },
+            "weekly": {
+                "weekly_morning_count": 1,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    11,
+                    3,
+                    16
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": "2023-06-16 11:29:33",
+                "lastweek_latest_night_time": "2023-06-16 00:26:17"
+            },
+            "total": {
+                "morning_count": 1,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    11,
+                    3,
+                    16
+                ]
+            }
+        },
+        "1533733900": {
+            "daily": {
+                "morning_time": "2023-06-16 07:08:30",
+                "night_time": "2023-06-16 00:26:38"
+            },
+            "weekly": {
+                "weekly_morning_count": 1,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    6,
+                    41,
+                    52
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": "2023-06-16 07:08:30",
+                "lastweek_latest_night_time": "2023-06-16 00:26:38"
+            },
+            "total": {
+                "morning_count": 1,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    6,
+                    41,
+                    52
+                ]
+            }
+        },
+        "1060733819": {
+            "daily": {
+                "morning_time": "2023-06-16 08:55:19",
+                "night_time": "2023-06-16 00:51:28"
+            },
+            "weekly": {
+                "weekly_morning_count": 1,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    8,
+                    3,
+                    51
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": "2023-06-16 08:55:19",
+                "lastweek_latest_night_time": "2023-06-16 00:51:28"
+            },
+            "total": {
+                "morning_count": 1,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    8,
+                    3,
+                    51
+                ]
+            }
+        },
+        "952338750": {
+            "daily": {
+                "morning_time": "2023-06-16 08:42:48",
+                "night_time": "2023-06-16 00:54:01"
+            },
+            "weekly": {
+                "weekly_morning_count": 1,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    7,
+                    48,
+                    47
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": "2023-06-16 08:42:48",
+                "lastweek_latest_night_time": "2023-06-16 00:54:01"
+            },
+            "total": {
+                "morning_count": 1,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    7,
+                    48,
+                    47
+                ]
+            }
+        },
+        "1634650813": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-16 01:30:14"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-16 01:30:14"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "3543099080": {
+            "daily": {
+                "morning_time": "2023-06-16 07:04:10",
+                "night_time": "2023-06-16 02:18:23"
+            },
+            "weekly": {
+                "weekly_morning_count": 1,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    4,
+                    45,
+                    47
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": "2023-06-16 07:04:10",
+                "lastweek_latest_night_time": "2023-06-16 02:18:23"
+            },
+            "total": {
+                "morning_count": 1,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    4,
+                    45,
+                    47
+                ]
+            }
+        },
+        "1037394099": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-16 02:22:44"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-16 02:22:44"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "1349312305": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-16 02:54:08"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-16 02:54:08"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "2064054996": {
+            "daily": {
+                "morning_time": "2023-06-16 06:11:22",
+                "night_time": "2023-06-16 04:32:01"
+            },
+            "weekly": {
+                "weekly_morning_count": 1,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    1,
+                    39,
+                    21
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": "2023-06-16 06:11:22",
+                "lastweek_latest_night_time": "2023-06-16 04:32:01"
+            },
+            "total": {
+                "morning_count": 1,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    1,
+                    39,
+                    21
                 ]
             }
         }
@@ -115144,11 +116224,11 @@
         "2909908391": {
             "daily": {
                 "morning_time": 0,
-                "night_time": "2023-06-12 23:10:18"
+                "night_time": "2023-06-16 01:10:20"
             },
             "weekly": {
                 "weekly_morning_count": 0,
-                "weekly_night_count": 1,
+                "weekly_night_count": 3,
                 "weekly_sleep": [
                     0,
                     0,
@@ -115168,7 +116248,7 @@
             },
             "total": {
                 "morning_count": 0,
-                "night_count": 3,
+                "night_count": 5,
                 "total_sleep": [
                     0,
                     0,
@@ -115222,6 +116302,172 @@
             },
             "weekly": {
                 "sleeping_king": ""
+            }
+        }
+    },
+    "488540265": {
+        "group_count": {
+            "daily": {
+                "good_morning": 2,
+                "good_night": 3
+            },
+            "weekly": {
+                "sleeping_king": ""
+            }
+        },
+        "3079710851": {
+            "daily": {
+                "morning_time": "2023-06-16 07:49:56",
+                "night_time": "2023-06-15 23:15:32"
+            },
+            "weekly": {
+                "weekly_morning_count": 1,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    8,
+                    34,
+                    24
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": "2023-06-16 07:49:56",
+                "lastweek_latest_night_time": "2023-06-15 23:15:32"
+            },
+            "total": {
+                "morning_count": 1,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    8,
+                    34,
+                    24
+                ]
+            }
+        },
+        "2091773455": {
+            "daily": {
+                "morning_time": "2023-06-16 11:10:04",
+                "night_time": "2023-06-15 23:16:45"
+            },
+            "weekly": {
+                "weekly_morning_count": 1,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    11,
+                    53,
+                    19
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": "2023-06-16 11:10:04",
+                "lastweek_latest_night_time": "2023-06-15 23:16:45"
+            },
+            "total": {
+                "morning_count": 1,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    11,
+                    53,
+                    19
+                ]
+            }
+        },
+        "196117604": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-16 01:36:46"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-16 01:36:46"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        }
+    },
+    "830042412": {
+        "group_count": {
+            "daily": {
+                "good_morning": 0,
+                "good_night": 1
+            },
+            "weekly": {
+                "sleeping_king": ""
+            }
+        },
+        "2123382551": {
+            "daily": {
+                "morning_time": 0,
+                "night_time": "2023-06-16 00:35:12"
+            },
+            "weekly": {
+                "weekly_morning_count": 0,
+                "weekly_night_count": 1,
+                "weekly_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_morning_count": 0,
+                "lastweek_night_count": 0,
+                "lastweek_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastweek_earliest_morning_time": 0,
+                "lastweek_latest_night_time": "2023-06-16 00:35:12"
+            },
+            "total": {
+                "morning_count": 0,
+                "night_count": 1,
+                "total_sleep": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
             }
         }
     }
