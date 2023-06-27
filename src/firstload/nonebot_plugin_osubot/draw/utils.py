@@ -1,44 +1,21 @@
 import math
 import os
+import random
 
 import numpy as np
 from io import BytesIO
 from typing import Optional, Union
-from PIL import ImageFont, ImageDraw, UnidentifiedImageError
+from PIL import ImageDraw, UnidentifiedImageError
+from ..schema import SeasonalBackgrounds
+from ..api import get_seasonal_bg, safe_async_get
 
 from .static import *
-
-
-class DataText:
-    # L=X轴，T=Y轴，size=字体大小，fontpath=字体文件，
-    def __init__(self, length, height, size, text, path: Path, anchor='lt'):
-        self.length = length
-        self.height = height
-        self.text = str(text)
-        self.path = path
-        self.font = ImageFont.truetype(str(self.path), size)
-        self.anchor = anchor
 
 
 def image2bytesio(pic: Image):
     byt = BytesIO()
     pic.save(byt, "png")
     return byt
-
-
-def write_text(image, font, text='text', pos=(0, 0), color=(255, 255, 255, 255), anchor='lt'):
-    rgba_image = image.convert('RGBA')
-    text_overlay = Image.new('RGBA', rgba_image.size, (255, 255, 255, 0))
-    image_draw = ImageDraw.Draw(text_overlay)
-    image_draw.text(pos, text, font=font, fill=color, anchor=anchor)
-    return Image.alpha_composite(rgba_image, text_overlay)
-
-
-def draw_text(image, class_text: DataText, color=(255, 255, 255, 255)):
-    font = class_text.font
-    text = class_text.text
-    anchor = class_text.anchor
-    return write_text(image, font, text, (class_text.length, class_text.height), color, anchor)
 
 
 def draw_fillet(img, radii):
@@ -103,12 +80,16 @@ def draw_acc(img: Image, acc: float, mode: str):
     return img
 
 
-def crop_bg(size: str, path: Union[str, Path]):
+async def crop_bg(size: str, path: Union[str, Path]):
     try:
         bg = Image.open(path).convert('RGBA')
     except UnidentifiedImageError:
         os.remove(path)
-        return Image.new(mode='RGBA', size=(1, 1))
+        data = await get_seasonal_bg()
+        pic = SeasonalBackgrounds(**data)
+        url = random.choice(pic.backgrounds).url
+        res = await safe_async_get(url)
+        bg = Image.open(BytesIO(res.content)).convert('RGBA')
     bg_w, bg_h = bg.size[0], bg.size[1]
     if size == 'BG':
         fix_w = 1500

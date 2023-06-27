@@ -1,20 +1,23 @@
 import asyncio
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 from time import strptime, mktime
 from typing import List, Union, Optional
+
+from PIL import ImageDraw
 from nonebot.adapters.onebot.v11 import MessageSegment
 
 from ..schema import Score
 from ..api import osu_api
 from ..utils import GMN
 from ..mods import get_mods_list
+from ..file import get_projectimg
 
-from .utils import DataText, draw_text, image2bytesio
+from .utils import image2bytesio, draw_fillet
 from .static import *
 
 
 async def draw_bp(project: str, uid: int, mode: str, mods: Optional[List],
-                  low_bound: int = 0, high_bound: int = 0) -> Union[str, MessageSegment]:
+                  low_bound: int = 0, high_bound: int = 0, day: int = 0) -> Union[str, MessageSegment]:
     bp_info = await osu_api('bp', uid, mode)
     if isinstance(bp_info, str):
         return bp_info
@@ -35,7 +38,7 @@ async def draw_bp(project: str, uid: int, mode: str, mods: Optional[List],
     elif project == 'tbp':
         ls = []
         for i, score in enumerate(score_ls):
-            today = datetime.now().date()
+            today = date.today() - timedelta(days=day)
             today_stamp = mktime(strptime(str(today), '%Y-%m-%d'))
             playtime = datetime.strptime(score.created_at.replace('Z', ''), '%Y-%m-%dT%H:%M:%S') + timedelta(
                 hours=8)
@@ -45,24 +48,26 @@ async def draw_bp(project: str, uid: int, mode: str, mods: Optional[List],
                 ls.append(i)
         score_ls = [score_ls[i] for i in ls]
         if not score_ls:
-            return f'今天在 {GMN[mode]} 没有新增的BP成绩'
-    msg = await draw_pfm(project, user, score_ls, mode, low_bound, high_bound)
+            return f'近{day + 1}日内在 {GMN[mode]} 没有新增的BP成绩'
+    msg = await draw_pfm(project, user, score_ls, mode, low_bound, high_bound, day)
     return msg
 
 
-async def draw_pfm(project: str, user: str, score_ls: List[Score], mode: str, low_bound: int = 0, high_bound: int = 0) -> \
-        Union[str, MessageSegment]:
+async def draw_pfm(project: str, user: str, score_ls: List[Score], mode: str, low_bound: int = 0, high_bound: int = 0,
+                   day: int = 0) -> Union[str, MessageSegment]:
+    tasks = [get_projectimg(f'https://assets.ppy.sh/beatmaps/{i.beatmapset.id}/covers/card.jpg') for i in score_ls]
+    bg_ls = await asyncio.gather(*tasks)
     bplist_len = len(score_ls)
     im = Image.new('RGBA', (1500, 180 + 82 * (bplist_len - 1)), (31, 41, 46, 255))
     im.alpha_composite(BgImg)
+    draw = ImageDraw.Draw(im)
     f_div = Image.new('RGBA', (1500, 2), (255, 255, 255, 255)).convert('RGBA')
     im.alpha_composite(f_div, (0, 100))
     if project == 'bp':
         uinfo = f"{user} | {mode.capitalize()} 模式 | BP {low_bound} - {high_bound}"
     else:
-        uinfo = f"{user} | {mode.capitalize()} 模式 | 今日新增 BP"
-    w_user = DataText(1450, 50, 25, uinfo, Torus_SemiBold, anchor='rm')
-    im = draw_text(im, w_user)
+        uinfo = f"{user} | {mode.capitalize()} 模式 | 近{day + 1}日新增 BP"
+    draw.text((1480, 50), uinfo, font=Torus_SemiBold_25, anchor='rm')
     for num, bp in enumerate(score_ls):
         h_num = 82 * num
         # mods
@@ -74,39 +79,43 @@ async def draw_pfm(project: str, user: str, score_ls: List[Score], mode: str, lo
             if (bp.rank == 'X' or bp.rank == 'S') and ('HD' in bp.mods or 'FL' in bp.mods):
                 bp.rank += 'H'
         # BP排名
-        rank_bp = DataText(15, 144 + h_num, 20, num + 1, Torus_Regular, anchor='lm')
-        im = draw_text(im, rank_bp)
+        draw.text((15, 144 + h_num), str(num + 1), font=Torus_Regular_20, anchor='lm')
+        # 获取谱面banner
+        bg = Image.open(bg_ls[num]).convert('RGBA').resize((157, 55))
+        bg_imag = draw_fillet(bg, 10)
+        im.alpha_composite(bg_imag, (45, 114 + h_num))
         # rank
         rank_img = osufile / 'ranking' / f'ranking-{bp.rank}.png'
-        rank_bg = Image.open(rank_img).convert('RGBA').resize((64, 32))
-        im.alpha_composite(rank_bg, (45, 128 + h_num))
+        rank_bg = Image.open(rank_img).convert('RGBA').resize((32, 16))
+        im.alpha_composite(rank_bg, (1366, 122 + h_num))
         # 曲名&作曲
-        w_title_artist = DataText(125, 130 + h_num, 20, f'{bp.beatmapset.title}'
-                                                        f' | by {bp.beatmapset.artist}', Torus_Regular,
-                                  anchor='lm')
-        im = draw_text(im, w_title_artist)
+        metadata = f'{bp.beatmapset.title} | by {bp.beatmapset.artist}'
+        # 如果曲名&作曲的长度超过75，就截断它
+        if len(metadata) > 75:
+            metadata = metadata[:72] + '...'
+        # 写入曲名&作曲
+        draw.text((215, 125 + h_num), metadata, font=Torus_Regular_20, anchor='lm')
         # 地图版本&时间
         old_time = datetime.strptime(bp.created_at.replace('Z', ''), '%Y-%m-%dT%H:%M:%S')
         new_time = (old_time + timedelta(hours=8)).strftime('%Y-%m-%d %H:%M:%S')
-        w_version_time = DataText(125, 158 + h_num, 18, f'{bp.beatmap.version} | {new_time}', Torus_Regular,
-                                  anchor='lm')
-        im = draw_text(im, w_version_time, color=(238, 171, 0, 255))
+        # 如果难度名的长度超过50，就截断它
+        difficulty = bp.beatmap.version
+        if len(difficulty) > 50:
+            difficulty = difficulty[:47] + '...'
+        # 写入难度名
+        difficulty = f'{difficulty} | {new_time}'
+        draw.text((215, 158 + h_num), difficulty, font=Torus_Regular_20, anchor='lm', fill=(238, 171, 0, 255))
         # acc
-        w_acc = DataText(1250, 130 + h_num, 22, f'{bp.accuracy * 100:.2f}%', Torus_SemiBold, anchor='lm')
-        im = draw_text(im, w_acc, color=(238, 171, 0, 255))
+        draw.text((1280, 130 + h_num), f'{bp.accuracy * 100:.2f}%', font=Torus_SemiBold_20, anchor='lm', fill=(238, 171, 0, 255))
         # mapid
-        w_mapid = DataText(1250, 158 + h_num, 18, f'ID: {bp.beatmap.id}', Torus_Regular, anchor='lm')
-        im = draw_text(im, w_mapid)
+        draw.text((1280, 158 + h_num), f'ID: {bp.beatmap.id}', font=Torus_Regular_20, anchor='lm')
         # pp
-        w_pp = DataText(1420, 140 + h_num, 25, int(bp.pp), Torus_SemiBold, anchor='rm')
-        im = draw_text(im, w_pp, (255, 102, 171, 255))
-        w_n_pp = DataText(1450, 140 + h_num, 25, 'pp', Torus_SemiBold, anchor='rm')
-        im = draw_text(im, w_n_pp, (209, 148, 176, 255))
+        draw.text((1450, 140 + h_num), f'{bp.pp:.0f}', font=Torus_SemiBold_25, anchor='rm', fill=(255, 102, 171, 255))
+        draw.text((1480, 140 + h_num), 'pp', font=Torus_SemiBold_25, anchor='rm', fill=(209, 148, 176, 255))
         # 分割线
         div = Image.new('RGBA', (1450, 2), (46, 53, 56, 255)).convert('RGBA')
         im.alpha_composite(div, (25, 180 + h_num))
         await asyncio.sleep(0)
-
     base = image2bytesio(im)
     msg = MessageSegment.image(base)
     return msg

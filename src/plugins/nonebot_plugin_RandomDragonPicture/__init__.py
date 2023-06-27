@@ -23,4 +23,4 @@ async def _():
         # 发送
         await dragon.send(MessageSegment.image(img))
     except:
-        await dragon.send(f"图片文件 {str(img)} 发送失败")
+        await dragon.send(f"发送失败")

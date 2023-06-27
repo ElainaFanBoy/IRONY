@@ -35,6 +35,14 @@ async def safe_async_get(url, headers=None, params=None) -> Response:
     return req
 
 
+@auto_retry
+async def safe_async_post(url, headers=None, data=None) -> Response:
+    async with AsyncClient(timeout=100) as client:
+        client: AsyncClient
+        req = await client.post(url, headers=headers, data=data)
+    return req
+
+
 async def renew_token():
     url = "https://osu.ppy.sh/oauth/token"
     async with AsyncClient() as client:
@@ -127,6 +135,19 @@ async def api_info(project: str, url: str) -> Union[dict, str]:
     return req.json()
 
 
+async def get_beatmap_attribute(map_id, mode):
+    url = f'{api}/beatmaps/{map_id}/attributes'
+    token = cache.get('token')
+    if not token:
+        await renew_token()
+        token = cache.get('token')
+    headers = {'Authorization': f'Bearer {token}'}
+    req = await safe_async_post(url, headers, {'ruleset': mode})
+    if req.status_code == 404:
+        raise '内部错误'
+    return req.json()
+
+
 async def get_random_bg() -> Optional[bytes]:
     res = await safe_async_get(random.choice(bg_url))
     if res.status_code != 200:
@@ -139,9 +160,22 @@ async def get_sayo_map_info(sid, t=0) -> SayoBeatmap:
     return SayoBeatmap(**res.json())
 
 
-async def get_map_bg(sid, bg_name):
+async def get_map_bg(sid, bg_name) -> BytesIO:
     res = await safe_async_get(f'https://dl.sayobot.cn/beatmaps/files/{sid}/{bg_name}')
     return BytesIO(res.content)
+
+
+async def get_seasonal_bg() -> Optional[dict]:
+    url = f'{api}/seasonal-backgrounds'
+    token = cache.get('token')
+    if not token:
+        await renew_token()
+        token = cache.get('token')
+    headers = {'Authorization': f'Bearer {token}'}
+    req = await safe_async_get(url, headers=headers)
+    if req.status_code != 200:
+        return
+    return req.json()
 
 
 async def get_recommend(uid, mode):

@@ -21,15 +21,6 @@ app = nonebot.get_asgi()
 driver = nonebot.get_driver()
 driver.register_adapter(ONEBOT_V11Adapter)
 
-nonebot.load_builtin_plugins("echo")
-nonebot.load_plugin("nonebot_plugin_apscheduler")
-nonebot.load_plugins("src/firstload")
-nonebot.load_plugins("src/plugins")
-nonebot.load_plugin("nonebot_plugin_majsoul")
-nonebot.load_plugin("nonebot_plugin_mahjong_utils")
-nonebot.load_plugin("nonebot_plugin_manga_translator")
-nonebot.load_plugin(r"nonebot_plugin_sky")
-
 
 # Please DO NOT modify this file unless you know what you are doing!
 # As an alternative, you should use command `nb` or modify `pyproject.toml` to load plugins
@@ -41,6 +32,21 @@ nonebot.load_plugin(r"nonebot_plugin_sky")
 # do something...
 
 
+if __name__ == "__mp_main__":
+    nonebot.load_builtin_plugins("echo")
+    nonebot.load_plugin("nonebot_plugin_apscheduler")
+    nonebot.load_plugin("nonebot_plugin_guild_patch")
+    nonebot.load_plugin("nonebot_plugin_majsoul")
+    nonebot.load_plugin("nonebot_plugin_mahjong_utils")
+    nonebot.load_plugin("nonebot_plugin_manga_translator")
+    nonebot.load_plugin(r"nonebot_plugin_sky")
+    nonebot.load_plugins("src/firstload")
+    nonebot.load_plugins("src/plugins")
+    #nonebot.load_plugins("src/test")
+   
+
+
 if __name__ == "__main__":
-    nonebot.logger.warning("Always use `nb run` to start the bot instead of manually running!")
+    #nonebot.logger.warning("Always use `nb run` to start the bot instead of manually running!")
+    nonebot.load_plugins("src/lastload")
     nonebot.run(app="__mp_main__:app")

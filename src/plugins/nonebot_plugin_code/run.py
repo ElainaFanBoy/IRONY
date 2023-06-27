@@ -5,8 +5,11 @@
 # @Email   :  youzyyz1384@qq.com
 # @File    : run.py
 # @Software: PyCharm
-import re
 
+# @Time    : 2023/01/19 21:00
+# @UpdateBy: Limnium
+# 更新了正则的pattern，完善了返回机制，“优化”代码风格。
+import re
 import httpx
 
 codeType = {
@@ -18,53 +21,68 @@ codeType = {
     'c': ['c', 'c'],
     'c#': ['csharp', 'cs'],
     'go': ['go', 'go'],
-    'asm': ['assembly', 'asm']
+    'asm': ['assembly', 'asm'],
+    'ats': ['ats','dats'],
+    'bash': ['bash','sh'],
+    'clisp': ['clisp','lsp'],
+    'clojure': ['clojure','clj'],
+    'cobol': ['cobol','cob'],
+    'coffeescript': ['coffeescript','coffee'],
+    'crystal': ['crystal','cr'],
+    'D': ['D','d'],
+    'elixir': ['elixir','ex'],
+    'elm': ['elm','elm'],
+    'erlang': ['erlang','erl'],
+    'fsharp': ['fsharp','fs'],
+    'groovy': ['groovy','groovy'],
+    'guile': ['guile','scm'],
+    'hare': ['hare','ha'],
+    'haskell': ['haskell','hs'],
+    'idris': ['idris','idr'],
+    'julia': ['julia','jl'],
+    'kotlin': ['kotlin','kt'],
+    'lua': ['lua','lua'],
+    'mercury': ['mercury','m'],
+    'nim': ['nim','nim'],
+    'nix': ['nix','nix'],
+    'ocaml': ['ocaml','ml'],
+    'pascal': ['pascal','pp'],
+    'perl': ['perl','pl'],
+    'raku': ['raku','raku'],
+    'ruby': ['ruby','rb'],
+    'rust': ['rust','rs'],
+    'sac': ['sac','sac'],
+    'scala': ['scala','scala'],
+    'swift': ['swift','swift'],
+    'typescript': ['typescript','ts'],
+    'zig': ['zig','zig'],
+    'plaintext': ['plaintext','txt']
 }
 
 
 async def run(strcode):
     strcode = strcode.replace('&amp;', '&').replace('&#91;', '[').replace('&#93;', ']')
     try:
-        a = re.findall(r'(py|php|java|cpp|js|c#|c|go|asm)\s?(-i)?\s?(\w*)?(\n|\r)((?:.|\n)+)', strcode)[0]
-        print(a)
+        a = re.match(r'(py|php|java|cpp|js|c#|c|go|asm|ats|bash|clisp|clojure|cobol|coffeescript|crystal|d|elixir|elm|erlang|fsharp|groovy|guide|hare|haskell|idris|julia|kotlin|lua|mercury|nim|nix|ocaml|pascal|perl|raku|ruby|rust|sac|scala|swift|typescript|zig|plaintext)\b ?(.*)\n((?:.|\n)+)', strcode)
+        lang, stdin, code = a.group(1), a.group(2).replace(' ', '\n'), a.group(3)
     except:
-        return "输入有误汪\n目前仅支持c/cpp/c#/py/php/go/java/js"
-    if "-i" in strcode:
-        lang, code = a[0], a[4]
-        dataJson = {
-            "files": [
-                {
-                    "name": f"main.{codeType[lang][1]}",
-                    "content": code
-                }
-            ],
-            "stdin": a[2],
-            "command": ""
-        }
-    else:
-        lang, code = a[0], a[4]
-        dataJson = {
-            "files": [
-                {
-                    "name": f"main.{codeType[lang][1]}",
-                    "content": code
-                }
-            ],
-            "stdin": "",
-            "command": ""
-        }
-    headers = {
-        "Authorization": "Token 0123456-789a-bcde-f012-3456789abcde",
-        "content-type": "application/"
+        return "输入有误，目前仅支持py/php/java/cpp/js/c#/c/go/asm/ats/bash/clisp/clojure/cobol/coffeescript/crystal/d/elixir/elm/erlang/fsharp/groovy/guide/hare/haskell/idris/julia/kotlin/lua/mercury/nim/nix/ocaml/pascal/perl/raku/ruby/rust/sac/scala/swift/typescript/zig/plaintext"
+    dataJson = {
+        "files": [
+            {
+                "name": f"main.{codeType[lang][1]}",
+                "content": code
+            }
+        ],
+        "stdin": stdin,
+        "command": ""
     }
+    headers = {"Authorization": "Token f6145e09-7cd6-40b5-8233-c2d4410ace5a",
+               "content-type": "application/"}
     async with httpx.AsyncClient() as client:
-        res = (await client.post(url=f'https://glot.io/run/{codeType[lang][0]}?version=latest', headers=headers, json=dataJson))
-    print(dataJson)
+        res = await client.post(url=f'https://glot.io/run/{codeType[lang][0]}?version=latest', headers=headers, json=dataJson)
     if res.status_code == 200:
-        if res.json()['stdout'] != "":
-            if len(repr(res.json()['stdout'])) < 100:
-                return res.json()['stdout']
-            else:
-                return "返回字符过长呐~~~"
-        else:
-            return res.json()['stderr'].strip()
+        res = res.json()
+        return res['stdout']+('\n---\n'+res['stderr'] if res['stderr'] else '')
+    else:
+        return '响应异常'

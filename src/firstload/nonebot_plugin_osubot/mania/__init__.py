@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from io import BytesIO
 from typing import Optional
 
 from reamber.algorithms.generate import full_ln
@@ -6,6 +7,8 @@ from reamber.osu.OsuHit import OsuHit
 from reamber.osu.OsuMap import OsuMap
 from reamber.algorithms.playField import PlayField
 from reamber.algorithms.playField.parts import *
+from reamber.algorithms.pattern.combos.PtnCombo import PtnCombo
+from reamber.algorithms.pattern.Pattern import Pattern
 from pathlib import Path
 from zipfile import ZipFile
 from ..file import download_map
@@ -13,7 +16,7 @@ from ..schema import SayoBeatmap
 import os
 import shutil
 import asyncio
-import numpy
+import numpy as np
 
 osu_path = Path() / "data" / "osu"
 if not osu_path.exists():
@@ -36,18 +39,38 @@ class Options:
     thres: float = 100
 
 
-async def generate_preview_pic(file: Path):
+async def generate_preview_pic(file: Path, full=False) -> BytesIO:
     m = OsuMap.read_file(str(file.absolute()))
+    keys = m.stack().column.max() + 1
+    ptn = Pattern.from_note_lists([m.hits, m.holds], include_tails=False)
+    grp = ptn.group()
     pf = (
-            PlayField(m, padding=30)
+            PlayField(m, duration_per_px=5, padding=60)
             + PFDrawColumnLines()
             + PFDrawBeatLines()
-            + PFDrawBpm(x_offset=30, y_offset=0)
-            + PFDrawSv(y_offset=0)
+            + PFDrawBpm(x_offset=30)
+            + PFDrawSv()
             + PFDrawNotes()
+            + PFDrawOffsets(interval=2000, decimal_places=0)
     )
-    pf.export_fold(max_height=1000).save("data/osu/preview.png")
-    return Path("data/osu/preview.png")
+    if full:
+        pf += PFDrawLines.from_combo(
+                **PFDrawLines.Colors.RED,
+                keys=keys,
+                combo=np.concatenate(PtnCombo(grp).template_chord_stream(
+                    primary=3, secondary=2,
+                    keys=keys, and_lower=True
+                ), axis=0)
+            )
+        pf += PFDrawLines.from_combo(
+                **PFDrawLines.Colors.PURPLE,
+                keys=keys,
+                combo=np.concatenate(PtnCombo(grp).template_jacks(
+                    minimum_length=2, keys=keys), axis=0)
+            )
+    byt = BytesIO()
+    pf.export_fold(max_height=3000).save(byt, "png")
+    return byt
 
 
 async def convert_mania_map(options: Options) -> Optional[Path]:
@@ -58,14 +81,15 @@ async def convert_mania_map(options: Options) -> Optional[Path]:
     with ZipFile(osz_file.absolute()) as my_zip:
         my_zip.extractall(path)
     os.remove(osz_file)
-    for i in options.sayo_info.data.bid_data:
-        if i.bid == options.map:
-            audio_file_name = i.audio
-            audio_name = audio_file_name[:-4]
-            audio_type = audio_file_name[-4:]
-            break
-    else:
-        raise Exception('小夜api有问题啊')
+    if options.sayo_info:
+        for i in options.sayo_info.data.bid_data:
+            if i.bid == options.map:
+                audio_file_name = i.audio
+                audio_name = audio_file_name[:-4]
+                audio_type = audio_file_name[-4:]
+                break
+        else:
+            raise Exception('小夜api有问题啊')
     if options.rate:
         if options.rate > 10:
             options.rate = 10
@@ -77,7 +101,7 @@ async def convert_mania_map(options: Options) -> Optional[Path]:
         if not options.step:
             options.step = 0.05
         tasks = []
-        for rate in numpy.arange(options.rate, end, options.step):
+        for rate in np.arange(options.rate, end, options.step):
             new_audio_path = path / (audio_name + f'x{rate:.2f}' + audio_type)
             tasks.append(asyncio.create_subprocess_shell(
                 f'ffmpeg -i "{(path / audio_file_name).absolute()}" -threads 4 -filter:a "atempo={rate}" -b:a 128k -vn -y '
@@ -90,7 +114,7 @@ async def convert_mania_map(options: Options) -> Optional[Path]:
         if options.rate:
             if osu.audio_file_name != audio_file_name:
                 continue
-            for rate in numpy.arange(options.rate, end, options.step):
+            for rate in np.arange(options.rate, end, options.step):
                 rate = round(rate, 2)
                 osu_new = osu.rate(rate)
                 osu_new.version += f' x{rate}'
