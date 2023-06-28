@@ -18,9 +18,12 @@
 
 首先将本仓库克隆至本地，下载env.zip并塞进`env`文件夹（注意不要嵌套文件夹），把你的`xxx\env\Library\bin`所在目录设置环境变量。（若需要使用语音相关功能请下载ffpmeg并设置环境变量）
 
-然后打开`.env`填写相关配置，设置好你的go-cqhttp，双击运行`run.bat`和go-cqhttp即可。
+然后打开`.env`填写相关配置，设置好你的go-cqhttp反代，双击运行`run.bat`和go-cqhttp即可。
 
-若出现类似如下所示的内容，代表运行成功：`
+若出现类似如下所示的内容，代表运行成功：
+
+```
 06-27 11:45:14 [INFO] uvicorn | Application startup complete.
+
 06-27 11:45:14 [INFO] uvicorn | Uvicorn running on http://127.0.0.1:27500 (Press CTRL+C to quit)
-`
+```
