@@ -7,7 +7,7 @@
 [![Python](https://img.shields.io/badge/Python-3.9+-00a393?style=for-the-badge&logo=python)](https://python.org)
 [![Nonebot2](https://img.shields.io/badge/Onebot-Nonebot2-red?style=for-the-badge&logo=appveyor&color=red)](https://github.com/nonebot/nonebot2)
 [![cqhttp](https://img.shields.io/badge/OneBot-go--cqhttp-green.svg?style=for-the-badge&logo=appveyor&color=pink)](https://github.com/Mrs4s/go-cqhttp)
-[![license](https://img.shields.io/github/license/ElainaFanBoy/IRONY?style=for-the-badge)](https://github.com/ElainaFanBoy/IRONY/blob/master/LICENSE)
+[![license](https://img.shields.io/github/license/ElainaFanBoy/IRONY?style=for-the-badge&color=green)](https://github.com/ElainaFanBoy/IRONY/blob/master/LICENSE)
 
 <div align="left">
 
