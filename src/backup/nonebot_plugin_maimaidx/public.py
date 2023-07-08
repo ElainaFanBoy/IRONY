@@ -3,8 +3,7 @@ from nonebot.typing import T_State
 from nonebot.adapters.onebot.v11 import Message, Event, Bot, MessageSegment
 from nonebot.exception import IgnoredException
 from nonebot.message import event_preprocessor
-from nonebot_plugin_txt2img import Txt2Img
-from .libraries.image import *
+from src.plugins.nonebot_plugin_maimaidx.libraries.image import *
 
 
 @event_preprocessor
@@ -13,8 +12,7 @@ async def preprocessor(bot, event, state):
         raise IgnoredException("not reply group temp message")
 
         
-help = on_command('maihelp',aliases={'舞萌帮助','mai帮助'})
-
+help = on_command('舞萌help', aliases={'舞萌帮助'})
 
 @help.handle()
 async def _(bot: Bot, event: Event, state: T_State):
@@ -28,24 +26,21 @@ XXXmaimaiXXX什么 随机一首歌
 定数查歌 <定数>  查询定数对应的乐曲
 定数查歌 <定数下限> <定数上限>
 分数线 <难度+歌曲id> <分数线> 详情请输入“分数线 帮助”查看'''
-    # await help.send(Message([
-    #     MessageSegment("image", {
-    #         "file": f"base64://{str(image_to_base64(text_to_image(help_str)), encoding='utf-8')}"
-    #     })
-    # ]))
-    title = '可用命令如下：'
-    txt2img = Txt2Img()
-    txt2img.set_font_size(font_size = 32)
-    pic = txt2img.draw(title, help_str)
-    await help.send(MessageSegment.image(pic))
-
+    await help.send(help_str)
+'''
+    await help.send(Message([
+        MessageSegment("image", {
+            "file": f"base64://{str(image_to_base64(text_to_image(help_str)), encoding='utf-8')}"
+        })
+    ]))
+'''
 
 async def _group_poke(bot: Bot, event: Event) -> bool:
     value = (event.notice_type == "notify" and event.sub_type == "poke" and event.target_id == int(bot.self_id))
     return value
 
 
-poke = on_notice(rule=_group_poke, priority=10, block=True)
+poke = on_notice(rule=_group_poke, priority=1, block=False)
 
 
 @poke.handle()

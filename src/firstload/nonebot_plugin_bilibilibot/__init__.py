@@ -359,7 +359,7 @@ async def sendHelpMsg(event: MessageEvent):
         helpMsg = json.load(f)
     await helpCommand.finish(helpMsg)
 
-publicBroacast = on_command("broacast", aliases={'广播'}, permission=permission.SUPERUSER)
+publicBroacast = on_command("biliannouncement", permission=permission.SUPERUSER)
 @publicBroacast.handle()
 async def sendBroacast(event: MessageEvent):
     announcement = ""

@@ -22,7 +22,6 @@ from .data_convert import (
 require("nonebot_plugin_htmlrender")
 from nonebot_plugin_htmlrender import template_to_pic  # noqa: E402
 
-proxy = {"http://": "http://127.0.0.1:2333"}
 
 async def queryPanelApi(uid: str) -> Dict:
     """
@@ -303,10 +302,10 @@ async def getPanel(uid: str, char: str = "全部") -> Union[bytes, str]:
         template_name=f"{mode}-{tplVer}.html",
         templates={"css": tplVer, "uid": uid, "data": data},
         pages={
-            "device_scale_factor": SCALE_FACTOR,
             "viewport": {"width": 600, "height": 300},
             "base_url": f"file://{htmlBase}",
         },
+        device_scale_factor=SCALE_FACTOR,
         wait=2,
         type="jpeg",
         quality=100,
@@ -387,10 +386,10 @@ async def getTeam(
         template_name=f"team-{TEAM_TPL_VER}.html",
         templates={"css": TEAM_TPL_VER, "data": data, "detail": showDetail},
         pages={
-            "device_scale_factor": SCALE_FACTOR,
             "viewport": {"width": 600, "height": 300},
             "base_url": f"file://{htmlBase}",
         },
+        device_scale_factor=SCALE_FACTOR,
         wait=2,
         type="jpeg",
         quality=100,

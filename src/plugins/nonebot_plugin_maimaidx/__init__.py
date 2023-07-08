@@ -1,15 +1,78 @@
-from nonebot import on_command, on_regex
+from nonebot import require
+require('nonebot_plugin_txt2img')
+from nonebot import on_command, on_regex,get_driver
 from nonebot.params import CommandArg, EventMessage
 from nonebot.adapters import Event
 from nonebot.adapters.onebot.v11 import Message, MessageSegment
+from nonebot.plugin import PluginMetadata
 
-from src.plugins.nonebot_plugin_maimaidx.libraries.tool import hash
-from src.plugins.nonebot_plugin_maimaidx.libraries.maimaidx_music import *
-from src.plugins.nonebot_plugin_maimaidx.libraries.image import *
-from src.plugins.nonebot_plugin_maimaidx.libraries.maimai_best_40 import generate
-from src.plugins.nonebot_plugin_maimaidx.libraries.maimai_best_50 import generate50
+from .public import *
+from .libraries.tool import hash
+from .libraries.maimaidx_music import *
+from .libraries.image import *
+from .libraries.maimai_best_40 import generate
+from .libraries.maimai_best_50 import generate50
 import re
+try:
+    import ujson as json
+except:
+    import json
 
+driver = get_driver()
+try:
+    nickname = list(driver.config.nickname)[0]
+except:
+    nickname = "宁宁"
+    
+logo ="""
+    ......                  ` .]]@@@@@@@@@@@@@@@@@@@@@@@@@@@@@OO^       
+    ......                ,/@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@OO^       
+    ......            /O@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@OO^       
+    `.....           ,@^=.OOO\/\@@@@@@@@@@@@@@@@@@@@OO//@@@@@/OO\]]]OO\]
+    ``....          ,@@/=^OOOOOOOO@@@@@@@@@@@\]OOOOOOO^^=@@@@OOOOOOOOOOO
+    `.....          O@O^==OOOOOOOO@@@/.,@@@OOOOOOOOOOO\O,@@@@OOOOOOOOO@@
+    ......    ,    .@@@^=`OOOOOOOOO/  ,O@@OOOOOOOOOOOOOO.O@@@OO/[[[[[[[.
+    ......    =..,//@@@^=`OOOOOOOOO@.*=@@@OOOOOOOOOOOOOO]@@@OOO.     ,/`
+    ......    =.\O]`,@O^\=OOOO@@@@@@O`=@@@@@@@OOOOOOOO*O,OO^....[[``]./]
+    ......    ,^.oOoO@O^=,OO@@@@@OoO`\O\OO@@@@OOOOOOOOO]@@^.]]]/OOOo.,OO
+    ......     =.=OOOO@@@@/[[=/.^,/....*.=^,[O@@@@OOOO.@@OOOOOOOOO/..OOO
+    ......      \.\OO`.,....*`.=.^.......=....=@O[\@@O@@[^ ,`.=Oo*.,OOO/
+    ......       ,@,`...  ....=^/......../....=/O^....\..O]/[\O[*]/OOO. 
+    ......       ]@^.,....*..=O\^........^..*.O.\O.^..=^\..,\/\@OOO[.   
+    ......    ,,`O^.,..../.,O`//........=..=`=^.=O`O..=^..OOO*/OOO.     
+    ......   .=.=@..^...=^/O`*OO.]...o**\.,/=^...O^@^..^...OO^=`OOO`    
+    ......  `=.,O^./.*.,OO`,.,/@/.*,O`,O*/@/`....\O\^......Oo^.^,OOO.   
+    ...... .,`.o=^=^.../`...]/`***/O^/@oO@`..[[[[\/=\......O^^...=OO^   
+    ......  ^.=`O^O.*.=\],]]]/\O/\@O[=O/`        =.=O....=^O^*....OOO.  
+    ...... =../=OO^.*.=@@[[,@@@\ .. ..    ,\@@@@@] =O...`=^@`.....=OO^  
+    ...... `..^=OO^.^,@`  ^ =oO\          .O\O@\.,\@@..,^OoO......=OOO. 
+    ...... ^...=OO^.^.@^ =^*=^,O          \..Ooo^  ,@..=OOOO..*....OOO. 
+    ...... ^...=o@^.`.O@. .  ... .. ....  ^.*`.*^  =^..o@oO@*.=....OOO^ 
+    ...... ^...=oOO.*.\O   ... .......... .\   ` ,=^*.,OOOO@^.=`^..=OO\ 
+    ...... ^...*`OO.*.=O ........          ......,`*^.=OOOo@^.=^^..=OOO.
+    ...... \....*oO^..*O^ ....... @OO[[[`  ......../.,@OOOo@^..OO...OOO`
+    ...... =.....*.=`..,O`       .O.....=   ... ^.=..OOOOO=O@..=O^..OOO^
+    ...... .^...**.O@...\O^ .     \.....`   .^ /.,^.=O@OO`=O@^..OO`.=OO\
+    ...... .^...,.=O=@...OO@\      ,[O\=.    ./`.*.*OOOOO..OOO*..OO.,OOO
+    ....../O....../^=O@`..O@@@@@]`    .* .,/@@/..../OOOOO*.,OOO..,OO`=OO
+    @OO\ooO....,*/@^,@@@\..@^[\@@@@@@O]*]//[`@^*^*=OOOOOO^..=OO\...\^.\@
+    OOooo^..`./oOO@/ =^\/^.^\\....=]......,/@@^O^*O.... .,][],OO\....\`.
+    @Oooo\/]OOOOOO/  .  \.=^....,..........[.,OO^=^.    /    ,`\OO`.....
+    """
+
+__version__ = "0.3.2"
+__plugin_meta__ = PluginMetadata(
+    name="舞萌maimai",
+    description='指令：舞萌帮助',
+    usage=logo,
+    type="application",
+    homepage="https://github.com/Agnes4m/nonebot_plugin_maimai",
+    supported_adapters={"~onebot.v11"},
+    extra={
+        "version": __version__,
+        "author": "Agnes4m <Z735803792@163.com>",
+    },
+)
 
 def song_txt(music: Music):
     return Message([
@@ -265,13 +328,17 @@ BREAK 50落(一共{brk}个)等价于 {(break_50_reduce / 100):.3f} 个 TAP GREAT
             await query_chart.send("格式错误，输入“分数线 帮助”以查看帮助信息")
 
 
-best_40_pic = on_command('b40',aliases={'mai b40'})
+best_40_pic = on_command('b40', aliases={'mai b40'})
 
 
 @best_40_pic.handle()
 async def _(event: Event, message: Message = CommandArg()):
     username = str(message).strip()
-    if username == "":
+    at = await get_message_at(event.json())
+    usr_id = at_to_usrid(at)
+    if at:
+        payload = {'qq': usr_id}
+    elif username == "":
         payload = {'qq': str(event.get_user_id())}
     else:
         payload = {'username': username}
@@ -287,13 +354,17 @@ async def _(event: Event, message: Message = CommandArg()):
             })
         ]))
 
-best_50_pic = on_command('b50',aliases={'mai b50'})
+best_50_pic = on_command('b50', aliases={'mai b50'})
 
 
 @best_50_pic.handle()
 async def _(event: Event, message: Message = CommandArg()):
     username = str(message).strip()
-    if username == "":
+    at = await get_message_at(event.json())
+    usr_id = at_to_usrid(at)
+    if at:
+        payload = {'qq': usr_id,'b50':True}
+    elif username == "":
         payload = {'qq': str(event.get_user_id()),'b50':True}
     else:
         payload = {'username': username,'b50':  True}
@@ -308,3 +379,28 @@ async def _(event: Event, message: Message = CommandArg()):
                 "file": f"base64://{str(image_to_base64(img), encoding='utf-8')}"
             })
         ]))
+        
+async def get_message_at(data: str) -> list:
+    '''
+    获取at列表
+    :param data: event.json()
+    抄的groupmate_waifu
+    '''
+    qq_list = []
+    data = json.loads(data)
+    try:
+        for msg in data['message']:
+            if msg['type'] == 'at':
+                qq_list.append(int(msg['data']['qq']))
+        return qq_list
+    except Exception:
+        return []
+    
+def at_to_usrid(at):
+    """at对象变qqid否则返回usr_id"""
+    if at != []:
+        at:str = at[0]
+        usr_id:str = at
+        return usr_id
+    else:
+        return None

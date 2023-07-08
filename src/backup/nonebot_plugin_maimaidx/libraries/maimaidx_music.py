@@ -1,14 +1,15 @@
-
+import json
 import random
 from typing import Dict, List, Optional, Union, Tuple, Any
 from copy import deepcopy
-import httpx
 
-def get_cover_len4_id(mid) -> str:
+import requests
+
+def get_cover_len5_id(mid) -> str:
     mid = int(mid)
-    if 10001 <= mid:
+    if mid > 10000 and mid <= 11000:
         mid -= 10000
-    return f'{mid:04d}'
+    return f'{mid:05d}'
 
 def cross(checker: List[Any], elem: Optional[Union[Any, List[Any]]], diff):
     ret = False
@@ -150,7 +151,7 @@ class MusicList(List[Music]):
         return new_list
 
 
-obj = httpx.get('https://www.diving-fish.com/api/maimaidxprober/music_data').json()
+obj = requests.get('https://www.diving-fish.com/api/maimaidxprober/music_data').json()
 total_list: MusicList = MusicList(obj)
 for __i in range(len(total_list)):
     total_list[__i] = Music(total_list[__i])

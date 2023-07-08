@@ -2,31 +2,13 @@ from nonebot import on_command, on_regex
 from nonebot.params import CommandArg, EventMessage
 from nonebot.adapters import Event
 from nonebot.adapters.onebot.v11 import Message, MessageSegment
-from nonebot.plugin import PluginMetadata
 
-from .public import *
-from .libraries.tool import hash
-from .libraries.maimaidx_music import *
-from .libraries.image import *
-from .libraries.maimai_best_40 import generate
-from .libraries.maimai_best_50 import generate50
+from src.plugins.nonebot_plugin_maimaidx.libraries.tool import hash
+from src.plugins.nonebot_plugin_maimaidx.libraries.maimaidx_music import *
+from src.plugins.nonebot_plugin_maimaidx.libraries.image import *
+from src.plugins.nonebot_plugin_maimaidx.libraries.maimai_best_40 import generate
+from src.plugins.nonebot_plugin_maimaidx.libraries.maimai_best_50 import generate50
 import re
-try:
-    import ujson as json
-except:
-    import json
-
-
-__version__ = "0.1.0"
-__plugin_meta__ = PluginMetadata(
-    name="舞萌maimai",
-    description='指令：舞萌帮助',
-    usage='指令：舞萌帮助',
-    extra={
-        "version": __version__,
-        "author": "Umamusume-Agnes-Digital <Z735803792@163.com>",
-    },
-)
 
 
 def song_txt(music: Music):
@@ -35,7 +17,7 @@ def song_txt(music: Music):
             "text": f"{music.id}. {music.title}\n"
         }),
         MessageSegment("image", {
-            "file": f"https://www.diving-fish.com/covers/{get_cover_len4_id(music.id)}.png"
+            "file": f"https://www.diving-fish.com/covers/{get_cover_len5_id(music.id)}.png"
         }),
         MessageSegment("text", {
             "text": f"\n{'/'.join(music.level)}"
@@ -157,7 +139,7 @@ async def _(event: Event, message: Message = EventMessage()):
             chart = music['charts'][level_index]
             ds = music['ds'][level_index]
             level = music['level'][level_index]
-            file = f"https://www.diving-fish.com/covers/{get_cover_len4_id(music['id'])}.png"
+            file = f"https://www.diving-fish.com/covers/{get_cover_len5_id(music['id'])}.png"
             if len(chart['notes']) == 4:
                 msg = f'''{level_name[level_index]} {level}({ds})
 TAP: {chart['notes'][0]}
@@ -190,7 +172,7 @@ BREAK: {chart['notes'][4]}
         name = groups[1]
         music = total_list.by_id(name)
         try:
-            file =f"https://www.diving-fish.com/covers/{get_cover_len4_id(music['id'])}.png"
+            file =f"https://www.diving-fish.com/covers/{get_cover_len5_id(music['id'])}.png"
             await query_chart.send(Message([
                 MessageSegment("text", {
                     "text": f"{music['id']}. {music['title']}\n"
@@ -283,17 +265,13 @@ BREAK 50落(一共{brk}个)等价于 {(break_50_reduce / 100):.3f} 个 TAP GREAT
             await query_chart.send("格式错误，输入“分数线 帮助”以查看帮助信息")
 
 
-best_40_pic = on_command('b40',aliases={'mai b40','/mai b40'})
+best_40_pic = on_command('b40',aliases={'mai b40'})
 
 
 @best_40_pic.handle()
 async def _(event: Event, message: Message = CommandArg()):
     username = str(message).strip()
-    at = await get_message_at(event.json())
-    usr_id = at_to_usrid(at)
-    if at:
-        payload = {'qq': usr_id}
-    elif username == "":
+    if username == "":
         payload = {'qq': str(event.get_user_id())}
     else:
         payload = {'username': username}
@@ -309,17 +287,13 @@ async def _(event: Event, message: Message = CommandArg()):
             })
         ]))
 
-best_50_pic = on_command('b50',aliases={'mai b50','/mai b50'})
+best_50_pic = on_command('b50',aliases={'mai b50'})
 
 
 @best_50_pic.handle()
 async def _(event: Event, message: Message = CommandArg()):
     username = str(message).strip()
-    at = await get_message_at(event.json())
-    usr_id = at_to_usrid(at)
-    if at:
-        payload = {'qq': usr_id,'b50':True}
-    elif username == "":
+    if username == "":
         payload = {'qq': str(event.get_user_id()),'b50':True}
     else:
         payload = {'username': username,'b50':  True}
@@ -334,28 +308,3 @@ async def _(event: Event, message: Message = CommandArg()):
                 "file": f"base64://{str(image_to_base64(img), encoding='utf-8')}"
             })
         ]))
-        
-async def get_message_at(data: str) -> list:
-    '''
-    获取at列表
-    :param data: event.json()
-    抄的groupmate_waifu
-    '''
-    qq_list = []
-    data = json.loads(data)
-    try:
-        for msg in data['message']:
-            if msg['type'] == 'at':
-                qq_list.append(int(msg['data']['qq']))
-        return qq_list
-    except Exception:
-        return []
-    
-def at_to_usrid(at):
-    """at对象变qqid否则返回usr_id"""
-    if at != []:
-        at:str = at[0]
-        usr_id:str = at
-        return usr_id
-    else:
-        return None
