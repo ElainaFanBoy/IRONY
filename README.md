@@ -10,7 +10,7 @@
 [![LICENSE](https://img.shields.io/github/license/ElainaFanBoy/IRONY?style=for-the-badge&logo=github&color=609966)](https://github.com/ElainaFanBoy/IRONY/blob/master/LICENSE)
 
 
-[![QQ](https://img.shields.io/badge/Nanako-712111161-red?style=for-the-badge&logo=tencentqq&color=FFADBC)](https://qm.qq.com/cgi-bin/qm/qr?k=dRXdn8MbK5OjWVvp5nn3mZfVv9t0A5y5&jump_from=webapi&authKey=Rd35Ezb2myZwrujG+pZZk5u5mjCho4l8BGXWO+BXDolmv68QY1BcDtWv2arfnK5J)
+[![QQ](https://img.shields.io/badge/Nanako-712111161-red?style=for-the-badge&logo=tencentqq&color=FFADBC)](http://wpa.qq.com/msgrd?v=3&uin=712111161&site=qq&menu=yes)
 [![QQGroup1](https://img.shields.io/badge/%5BBot%231%5DIRONY%27s%20Home-527244914-red?style=for-the-badge&logo=tencentqq&color=3A8891)](https://qm.qq.com/cgi-bin/qm/qr?k=dRXdn8MbK5OjWVvp5nn3mZfVv9t0A5y5&jump_from=webapi&authKey=Rd35Ezb2myZwrujG+pZZk5u5mjCho4l8BGXWO+BXDolmv68QY1BcDtWv2arfnK5J)
 [![QQGroup2](https://img.shields.io/badge/%5BBot%232%5DIRONY%27s%20Home-830376488-red?style=for-the-badge&logo=tencentqq&color=3A8891)](https://qm.qq.com/cgi-bin/qm/qr?k=AGfL9ka-0Fy5eH4ybuYDJmaI9G7nlG-m&jump_from=webapi&authKey=E/QvtkmiBn1ONZahU+Zc9sQaSh9IsMS9aCnxe/X6buLJBNPgN2cjFL2cj3r4VsRV)
 
