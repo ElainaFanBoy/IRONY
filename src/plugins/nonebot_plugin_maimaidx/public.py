@@ -79,7 +79,7 @@ async def _group_poke(bot: Bot, event: Event) -> bool:
     return value
 
 
-poke = on_notice(rule=_group_poke, priority=1, block=False)
+poke = on_notice(rule=_group_poke, priority=2, block=False)
 
 
 @poke.handle()
