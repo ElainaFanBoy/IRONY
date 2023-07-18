@@ -1,6 +1,14 @@
 <div align="center">
 
-![IRONY](https://socialify.git.ci/ElainaFanBoy/IRONY/image?description=1&font=Rokkitt&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F56375835%3Fv%3D4&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Auto)
+<p align="center">
+<img  alt="IRONY" src="https://fastly.jsdelivr.net/gh/ElainaFanBoy/ElainaFanBoy.github.io/docs/logo.png"/>
+</p>
+
+<h1 align="center">
+IRONY
+</h1>
+
+A PROJECT FOR IRONY Usage go-cqhttp + Nonebot2
 
 <p align="center">
 
