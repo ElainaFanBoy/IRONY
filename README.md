@@ -28,6 +28,7 @@ A PROJECT FOR IRONY Usage go-cqhttp + Nonebot2
 ## 欢迎使用
 
 欢迎您使用 IRONY 并搭建属于您自己的 IRONY 机器人！
+> 关注Nanako喵！点点Star谢谢喵！
 
 ## 部署教程
 
