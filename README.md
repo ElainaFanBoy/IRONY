@@ -1,7 +1,7 @@
 <div align="center">
 
 <p align="center">
-<img  alt="IRONY" src="https://fastly.jsdelivr.net/gh/ElainaFanBoy/ElainaFanBoy.github.io/docs/logo.png"/>
+<img  alt="IRONY" src="https://fastly.jsdelivr.net/gh/ElainaFanBoy/ElainaFanBoy.github.io/docs/logo.png" width="200" height="200" alt="IRONY"/>
 </p>
 
 <h1 align="center">
