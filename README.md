@@ -16,6 +16,7 @@ A PROJECT FOR IRONY Usage go-cqhttp + Nonebot2
 [![Nonebot2](https://img.shields.io/badge/Onebot-Nonebot2-red?style=for-the-badge&logo=appveyor&color=EA5252)](https://github.com/nonebot/nonebot2)
 [![go-cqhttp](https://img.shields.io/badge/OneBot-go--cqhttp-green.svg?style=for-the-badge&logo=appveyor&color=a14576)](https://github.com/Mrs4s/go-cqhttp)
 [![LICENSE](https://img.shields.io/github/license/ElainaFanBoy/IRONY?style=for-the-badge&logo=github&color=609966)](https://github.com/ElainaFanBoy/IRONY/blob/master/LICENSE)
+[![CodeFactor](https://img.shields.io/badge/CodeFactor-A-00a393?style=for-the-badge&logo=codefactor&color=00B16A)](https://www.codefactor.io/repository/github/ElainaFanBoy/IRONY)
 
 
 [![QQ](https://img.shields.io/badge/Nanako-712111161-red?style=for-the-badge&logo=tencentqq&color=FFADBC)](http://wpa.qq.com/msgrd?v=3&uin=712111161&site=qq&menu=yes)
