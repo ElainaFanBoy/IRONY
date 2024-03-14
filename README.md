@@ -1,7 +1,7 @@
 <div align="center">
 
 <p align="center">
-<img  alt="IRONY" src="https://jsd.cdn.zzko.cn/gh/ElainaFanBoy/picx-images-hosting@master/20230720/icon.png" width="200" height="200" alt="IRONY"/>
+<img  alt="IRONY" src="https://cdn.jsdelivr.net/gh/ElainaFanBoy/picx-images-hosting@master/20230720/icon.png" width="200" height="200" alt="IRONY"/>
 </p>
 
 <h1 align="center">
