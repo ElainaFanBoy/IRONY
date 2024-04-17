@@ -8,13 +8,13 @@
 IRONY
 </h1>
 
-A PROJECT FOR IRONY Usage go-cqhttp + Nonebot2
+A PROJECT FOR IRONY Usage Lagrange.Core + Nonebot2
 
 <p align="center">
 
 [![Python](https://img.shields.io/badge/Python-3.9+-00a393?style=for-the-badge&logo=python&color=406882)](https://python.org)
 [![Nonebot2](https://img.shields.io/badge/Onebot-Nonebot2-red?style=for-the-badge&logo=appveyor&color=EA5252)](https://github.com/nonebot/nonebot2)
-[![go-cqhttp](https://img.shields.io/badge/OneBot-go--cqhttp-green.svg?style=for-the-badge&logo=appveyor&color=a14576)](https://github.com/Mrs4s/go-cqhttp)
+[![Lagrange.Core](https://img.shields.io/badge/OneBot-Lagrange.Core-green.svg?style=for-the-badge&logo=appveyor&color=blue)](https://github.com/KonataDev/Lagrange.Core)
 [![LICENSE](https://img.shields.io/github/license/ElainaFanBoy/IRONY?style=for-the-badge&logo=github&color=609966)](https://github.com/ElainaFanBoy/IRONY/blob/master/LICENSE)
 [![CodeFactor](https://img.shields.io/badge/CodeFactor-A-00a393?style=for-the-badge&logo=codefactor&color=00B16A)](https://www.codefactor.io/repository/github/ElainaFanBoy/IRONY)
 
@@ -35,7 +35,7 @@ A PROJECT FOR IRONY Usage go-cqhttp + Nonebot2
 
 首先将本仓库克隆至本地，下载[env.zip](https://drive.google.com/file/d/1sK9ZF3TkhbL-FCLOTvJLdWuiwwpE6_NH/view?usp=sharing)，将其中文件解压至`env`文件夹（注意不要嵌套文件夹），把你的`xxx\env\Library\bin`所在目录设置环境变量。（若需要使用语音相关功能请下载ffpmeg并配置环境变量）
 
-然后打开`.env`填写相关配置，设置好你的go-cqhttp反代，双击运行`run.bat`和go-cqhttp即可。
+然后打开`.env`填写相关配置，设置好你的Lagrange.Core反代，双击运行`run.bat`和Lagrange.Core即可。
 
 若出现类似如下所示的内容，代表运行成功：
 
