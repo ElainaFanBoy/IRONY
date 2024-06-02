@@ -35,11 +35,8 @@ A PROJECT FOR IRONY Usage Lagrange.Core + Nonebot2
 
 首先将本仓库克隆至本地，下载[env.zip](https://drive.google.com/file/d/1sK9ZF3TkhbL-FCLOTvJLdWuiwwpE6_NH/view?usp=sharing)，将其中文件解压至`env`文件夹（注意不要嵌套文件夹），把你的`xxx\env\Library\bin`所在目录设置环境变量。（若需要使用语音相关功能请下载 ffpmeg 并配置环境变量）
 
-<<<<<<< HEAD
-然后打开`.env`填写相关配置，设置好你的 Lagrange.Core 反代，双击运行`run.bat`和 Lagrange.Core 即可。
-=======
 然后打开`.env`填写相关配置，设置好你的Lagrange.Core反代，双击运行`run.bat`和Lagrange.Core即可。
->>>>>>> e8303ef90d2c53f923cf28a20ebf53ff13a219d0
+
 
 若出现类似如下所示的内容，代表运行成功：
 
