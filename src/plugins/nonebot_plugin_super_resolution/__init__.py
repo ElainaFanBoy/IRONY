@@ -27,7 +27,6 @@ except ImportError:
     enable = False
 
 
-
 upsampler = (
     RealESRGANer(
         scale=4,
@@ -89,7 +88,7 @@ async def _(event: GroupMessageEvent, img: Message = Arg("img")):
         SuperResolution_CD.update({qid: event.time})
         cpu_rate = psutil.cpu_percent(interval=1)
         if cpu_rate > 70:
-            await superResolution.finish("CPU占用率过高, 后台可能已有超分任务，此次超分已撤销, 发送\"状态或status\"可查看CPU使用率...")
+            await superResolution.finish("CPU占用率过高, 后台可能已有超分任务，此次超分已取消, 发送\"状态或status\"可查看CPU使用率...")
         img_url = get_message_img(img)[0]
         await superResolution.send("开始处理图片...")
         async with AsyncClient() as client:
@@ -112,7 +111,7 @@ async def _(event: GroupMessageEvent, img: Message = Arg("img")):
             try:
                 output, _ = await loop.run_in_executor(None, upsampler.enhance, image_array, 2)
             except:
-                await superResolution.finish("超分失败...可能服务器算力不足")
+                await superResolution.finish("超分失败...可能算力不足")
             img = IMG.fromarray(output)
             img.save(result, format='PNG')  # format: PNG / JPEG
         end = time.time()
@@ -120,6 +119,7 @@ async def _(event: GroupMessageEvent, img: Message = Arg("img")):
         await superResolution.finish(Message(f"超分完成！处理用时：{use_time}s") + MessageSegment.image(result.getvalue()))
     else:
         await superResolution.finish(f"超分 CD剩余时间：{round(cdTime - cd, 3)}s")
+
 
 def get_message_img(data: Union[str, Message]) -> List[str]:
     img_list = []

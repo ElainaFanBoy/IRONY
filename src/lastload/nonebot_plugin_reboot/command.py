@@ -13,6 +13,7 @@ reboot_matcher = on_command(
     rule=to_me()
 )
 
+
 @reboot_matcher.handle()
 async def _(event: GroupMessageEvent):
     await reboot_matcher.send("重启中...")

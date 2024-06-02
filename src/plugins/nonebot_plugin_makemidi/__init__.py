@@ -1,12 +1,14 @@
-from pathlib import Path
-from sched import scheduler
-import shutil
-from nonebot import on_command
-from nonebot.plugin import PluginMetadata
-from nonebot.params import Command, CommandArg
-from nonebot.adapters.onebot.v11 import MessageEvent, Message, Bot, MessageSegment
-
 from .data_source import make_midi, multi_tracks
+from nonebot.adapters.onebot.v11 import MessageEvent, Message, Bot, MessageSegment
+from nonebot.params import Command, CommandArg
+from nonebot.plugin import PluginMetadata
+from nonebot import on_command, require
+import shutil
+from sched import scheduler
+from pathlib import Path
+from nonebot_plugin_apscheduler import scheduler
+require('nonebot_plugin_apscheduler')
+
 
 __plugin_meta__ = PluginMetadata(
     name="在线编曲",
@@ -46,7 +48,8 @@ async def _(event: MessageEvent, arg: Message = CommandArg()):
         key_signature = arg[2]
         notes = arg[3:]
         try:
-            result = make_midi(qq, notes, program=program, bpm=bpm, key_signature=key_signature)
+            result = make_midi(qq, notes, program=program,
+                               bpm=bpm, key_signature=key_signature)
         except Exception as e:
             result = f"编曲失败，参数错误：{e}"
     else:
@@ -55,8 +58,16 @@ async def _(event: MessageEvent, arg: Message = CommandArg()):
         key_signature = arg[0].split()[1]
         tracks = arg[1:]
         try:
-            result = multi_tracks(qq, tracks, bpm=bpm, key_signature=key_signature)
+            result = multi_tracks(qq, tracks, bpm=bpm,
+                                  key_signature=key_signature)
         except Exception as e:
             result = f"编曲失败，参数错误：{e}"
 
     await make_music.finish(result)
+
+
+@scheduler.scheduled_job('cron', hour='4', day_of_week='0,1,2,3,4,5')
+async def delete_cached_midi():
+    midi_path = Path('src/plugins/nonebot_plugin_makemidi/resources/midi')
+    shutil.rmtree(midi_path)
+    midi_path.mkdir(parents=True, exist_ok=True)

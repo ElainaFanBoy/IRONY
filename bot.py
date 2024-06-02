@@ -5,7 +5,7 @@ import nonebot
 from nonebot.adapters.onebot.v11 import Adapter as ONEBOT_V11Adapter
 
 # Custom your logger
-# 
+#
 # from nonebot.log import logger, default_format
 # logger.add("error.log",
 #            rotation="00:00",
@@ -27,7 +27,7 @@ driver.register_adapter(ONEBOT_V11Adapter)
 # nonebot.load_from_toml("pyproject.toml")
 
 # Modify some config / config depends on loaded configs
-# 
+#
 # config = driver.config
 # do something...
 
@@ -36,17 +36,13 @@ if __name__ == "__mp_main__":
     nonebot.load_builtin_plugins("echo")
     nonebot.load_plugin("nonebot_plugin_apscheduler")
     nonebot.load_plugin("nonebot_plugin_guild_patch")
-    nonebot.load_plugin("nonebot_plugin_majsoul")
-    nonebot.load_plugin("nonebot_plugin_mahjong_utils")
-    nonebot.load_plugin("nonebot_plugin_manga_translator")
-    nonebot.load_plugin(r"nonebot_plugin_sky")
+    nonebot.load_plugin("nonebot_plugin_htmlrender")
     nonebot.load_plugins("src/firstload")
     nonebot.load_plugins("src/plugins")
-    #nonebot.load_plugins("src/test")
-   
+    nonebot.load_plugins("src/test")
 
 
 if __name__ == "__main__":
-    #nonebot.logger.warning("Always use `nb run` to start the bot instead of manually running!")
+    # nonebot.logger.warning("Always use `nb run` to start the bot instead of manually running!")
     nonebot.load_plugins("src/lastload")
     nonebot.run(app="__mp_main__:app")

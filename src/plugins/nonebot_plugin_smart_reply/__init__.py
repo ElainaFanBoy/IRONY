@@ -24,11 +24,12 @@ async def _poke_event(event: PokeNotifyEvent):
 
 # help响应器
 help = on_command("!help", aliases={
-                  "！help", "!帮助", "！帮助", "help", "帮助","功能"}, block=False)
+                  "！help", "!帮助", "！帮助", "help", "帮助", "功能"}, block=False)
 
 
 # 发送help处理操作
 @help.handle()
 async def _():
-    img = "https://image.thum.io/get/width/1280/crop/640/viewportWidth/1280/png/noanimate/https://socialify.git.ci/ElainaFanBoy/IRONY/image?description=1&font=Rokkitt&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F56375835%3Fv%3D4&name=1&owner=1&pattern=Circuit%20Board&theme=Light"
-    await help.finish(f"\n使用文档：ElainaFanBoy.github.io" + MessageSegment.image(img),at_sender=True)
+    img = "https://socialify.git.ci/ElainaFanBoy/IRONY/png?description=1&font=Rokkitt&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F56375835%3Fv%3D4&name=1&owner=1&pattern=Circuit%20Board&theme=Light"
+    await help.finish(f"使用文档：ElainaFanBoy.github.io", at_sender=True)
+    # await help.finish(f"使用文档：ElainaFanBoy.github.io" + MessageSegment.image(img), at_sender=True)

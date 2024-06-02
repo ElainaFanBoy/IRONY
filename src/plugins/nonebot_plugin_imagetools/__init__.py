@@ -3,29 +3,25 @@ import math
 import tempfile
 from datetime import datetime
 from io import BytesIO
-from itertools import chain
 from pathlib import Path
 from typing import List, Union
 from zipfile import ZIP_BZIP2, ZipFile
 
-from nonebot import on_command
-from nonebot.adapters.onebot.v11 import Bot as V11Bot
-from nonebot.adapters.onebot.v11 import GroupMessageEvent as V11GMEvent
-from nonebot.adapters.onebot.v11 import Message as V11Msg
-from nonebot.adapters.onebot.v11 import MessageEvent as V11MEvent
-from nonebot.adapters.onebot.v11 import MessageSegment as V11MsgSeg
-from nonebot.adapters.onebot.v12 import Bot as V12Bot
-from nonebot.adapters.onebot.v12 import MessageSegment as V12MsgSeg
-from nonebot.log import logger
+from nonebot import on_command, require
+from nonebot.adapters import Bot, Event
 from nonebot.matcher import Matcher
 from nonebot.params import Depends
-from nonebot.plugin import PluginMetadata
+from nonebot.plugin import PluginMetadata, inherit_supported_adapters
 from nonebot.typing import T_Handler
 from nonebot.utils import run_sync
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage, Text2Image
 
-from .config import imagetools_config
+require("nonebot_plugin_alconna")
+
+from nonebot_plugin_alconna import CustomNode, Image, Reference, UniMessage
+
+from .config import Config, imagetools_config
 from .data_source import commands
 from .utils import Command
 
@@ -33,11 +29,12 @@ __plugin_meta__ = PluginMetadata(
     name="图片操作",
     description="简单图片操作",
     usage="发送“图片操作”查看支持的指令",
+    type="application",
+    homepage="https://github.com/noneplugin/nonebot-plugin-imagetools",
+    config=Config,
+    supported_adapters=inherit_supported_adapters("nonebot_plugin_alconna"),
     extra={
-        "unique_name": "imagetools",
         "example": "旋转 [图片]",
-        "author": "meetwq <meetwq@gmail.com>",
-        "version": "0.2.1",
     },
 )
 
@@ -63,8 +60,8 @@ def help_image() -> BytesIO:
     for idx in range(0, len(commands), num_per_col):
         text = cmd_text(commands[idx : idx + num_per_col], start=idx + 1)
         imgs.append(Text2Image.from_text(text, 30).to_image(padding=(20, 10)))
-    w = max(sum((img.width for img in imgs)), head.width)
-    h = head.height + max((img.height for img in imgs))
+    w = max(sum(img.width for img in imgs), head.width)
+    h = head.height + max(img.height for img in imgs)
     frame = BuildImage.new("RGBA", (w, h), "white")
     frame.paste(head, alpha=True)
     current_w = 0
@@ -75,75 +72,24 @@ def help_image() -> BytesIO:
 
 
 @help_cmd.handle()
-async def _(bot: Union[V11Bot, V12Bot], matcher: Matcher):
+async def _():
     img = await help_image()
-
-    if isinstance(bot, V11Bot):
-        await matcher.finish(V11MsgSeg.image(img))
-    else:
-        resp = await bot.upload_file(
-            type="data", name="imagetools", data=img.getvalue()
-        )
-        file_id = resp["file_id"]
-        await matcher.finish(V12MsgSeg.image(file_id))
+    await UniMessage.image(raw=img).send()
 
 
-def handler_v11(command: Command) -> T_Handler:
+def handler(command: Command) -> T_Handler:
     async def handle(
-        bot: V11Bot,
-        event: V11MEvent,
+        bot: Bot,
+        event: Event,
         matcher: Matcher,
         res: Union[str, BytesIO, List[BytesIO]] = Depends(command.func),
     ):
         if isinstance(res, str):
             await matcher.finish(res)
         elif isinstance(res, BytesIO):
-            await matcher.finish(V11MsgSeg.image(res))
+            await UniMessage.image(raw=res).send()
         else:
-            if len(res) > imagetools_config.imagetools_zip_threshold:
-                zip_file = zip_images(res)
-                filename = f"{command.keywords[0]}_{datetime.now().strftime('%Y-%m-%d_%H%M%S')}.zip"
-                try:
-                    await upload_file(bot, event, zip_file, filename)
-                except:
-                    logger.warning("上传文件失败")
-
-            msgs: List[V11Msg] = [V11Msg(V11MsgSeg.image(msg)) for msg in res]
-            max_forward_msg_num = imagetools_config.max_forward_msg_num
-            # 超出最大转发消息条数时，改为一条消息包含多张图片
-            if len(msgs) > max_forward_msg_num:
-                step = math.ceil(len(msgs) / max_forward_msg_num)
-                msgs = [
-                    V11Msg(chain.from_iterable(msgs[i : i + step]))
-                    for i in range(0, len(msgs) - 1, step)
-                ]
-            await send_forward_msg(bot, event, "imagetools", bot.self_id, msgs)
-
-    return handle
-
-
-def handler_v12(command: Command) -> T_Handler:
-    async def handle(
-        bot: V12Bot,
-        matcher: Matcher,
-        res: Union[str, BytesIO, List[BytesIO]] = Depends(command.func),
-    ):
-        if isinstance(res, str):
-            await matcher.finish(res)
-        elif isinstance(res, BytesIO):
-            resp = await bot.upload_file(
-                type="data", name="imagetools", data=res.getvalue()
-            )
-            file_id = resp["file_id"]
-            await matcher.finish(V12MsgSeg.image(file_id))
-        else:
-            zip_file = zip_images(res)
-            filename = f"{command.keywords[0]}_{datetime.now().strftime('%Y-%m-%d_%H%M%S')}.zip"
-            resp = await bot.upload_file(
-                type="data", name=filename, data=zip_file.getvalue()
-            )
-            file_id = resp["file_id"]
-            await matcher.finish(V12MsgSeg.file(file_id))
+            await send_multiple_images(bot, event, command, res)
 
     return handle
 
@@ -153,32 +99,33 @@ def create_matchers():
         matcher = on_command(
             command.keywords[0], aliases=set(command.keywords), block=True, priority=12
         )
-        matcher.append_handler(handler_v11(command))
-        matcher.append_handler(handler_v12(command))
+        matcher.append_handler(handler(command))
 
 
 create_matchers()
 
 
-async def send_forward_msg(
-    bot: V11Bot,
-    event: V11MEvent,
-    name: str,
-    uin: str,
-    msgs: List[V11Msg],
+async def send_multiple_images(
+    bot: Bot, event: Event, command: Command, images: List[BytesIO]
 ):
-    def to_json(msg):
-        return {"type": "node", "data": {"name": name, "uin": uin, "content": msg}}
+    config = imagetools_config.imagetools_multiple_image_config
 
-    messages = [to_json(msg) for msg in msgs]
-    if isinstance(event, V11GMEvent):
-        await bot.call_api(
-            "send_group_forward_msg", group_id=event.group_id, messages=messages
-        )
+    if len(images) <= config.direct_send_threshold:
+        if config.send_one_by_one:
+            for img in images:
+                await UniMessage.image(raw=img).send()
+        else:
+            await UniMessage(Image(raw=img) for img in images).send()
+
     else:
-        await bot.call_api(
-            "send_private_forward_msg", user_id=event.user_id, messages=messages
-        )
+        if config.send_zip_file:
+            zip_file = zip_images(images)
+            time_str = datetime.now().strftime("%Y-%m-%d_%H%M%S")
+            filename = f"{command.keywords[0]}_{time_str}.zip"
+            await send_file(bot, event, filename, zip_file.getvalue())
+
+        if config.send_forward_msg:
+            await send_forward_msg(bot, event, images)
 
 
 def zip_images(files: List[BytesIO]):
@@ -191,20 +138,100 @@ def zip_images(files: List[BytesIO]):
     return output
 
 
-async def upload_file(
-    bot: V11Bot,
-    event: V11MEvent,
-    file: BytesIO,
-    filename: str,
+async def send_file(bot: Bot, event: Event, filename: str, content: bytes):
+    try:
+        from nonebot.adapters.onebot.v11 import Bot as V11Bot
+        from nonebot.adapters.onebot.v11 import Event as V11Event
+        from nonebot.adapters.onebot.v11 import GroupMessageEvent as V11GMEvent
+
+        async def upload_file_v11(
+            bot: V11Bot, event: V11Event, filename: str, content: bytes
+        ):
+            with tempfile.TemporaryDirectory() as temp_dir:
+                with open(Path(temp_dir) / filename, "wb") as f:
+                    f.write(content)
+                if isinstance(event, V11GMEvent):
+                    await bot.call_api(
+                        "upload_group_file",
+                        group_id=event.group_id,
+                        file=f.name,
+                        name=filename,
+                    )
+                else:
+                    await bot.call_api(
+                        "upload_private_file",
+                        user_id=event.get_user_id(),
+                        file=f.name,
+                        name=filename,
+                    )
+
+        if isinstance(bot, V11Bot) and isinstance(event, V11Event):
+            await upload_file_v11(bot, event, filename, content)
+            return
+
+    except ImportError:
+        pass
+
+    await UniMessage.file(raw=content, name=filename, mimetype="application/zip").send()
+
+
+async def send_forward_msg(
+    bot: Bot,
+    event: Event,
+    images: List[BytesIO],
 ):
-    with tempfile.TemporaryDirectory() as temp_dir:
-        with open(Path(temp_dir) / filename, "wb") as f:
-            f.write(file.getbuffer())
-        if isinstance(event, V11GMEvent):
-            await bot.call_api(
-                "upload_group_file", group_id=event.group_id, file=f.name, name=filename
+    try:
+        from nonebot.adapters.onebot.v11 import Bot as V11Bot
+        from nonebot.adapters.onebot.v11 import Event as V11Event
+        from nonebot.adapters.onebot.v11 import GroupMessageEvent as V11GMEvent
+        from nonebot.adapters.onebot.v11 import Message as V11Msg
+        from nonebot.adapters.onebot.v11 import MessageSegment as V11MsgSeg
+
+        async def send_forward_msg_v11(
+            bot: V11Bot,
+            event: V11Event,
+            name: str,
+            uin: str,
+            msgs: List[V11Msg],
+        ):
+            messages = [
+                {"type": "node", "data": {"name": name, "uin": uin, "content": msg}}
+                for msg in msgs
+            ]
+            if isinstance(event, V11GMEvent):
+                await bot.call_api(
+                    "send_group_forward_msg", group_id=event.group_id, messages=messages
+                )
+            else:
+                await bot.call_api(
+                    "send_private_forward_msg",
+                    user_id=event.get_user_id(),
+                    messages=messages,
+                )
+
+        if isinstance(bot, V11Bot) and isinstance(event, V11Event):
+            await send_forward_msg_v11(
+                bot,
+                event,
+                "imagetools",
+                bot.self_id,
+                [V11Msg(V11MsgSeg.image(img)) for img in images],
             )
-        else:
-            await bot.call_api(
-                "upload_private_file", user_id=event.user_id, file=f.name, name=filename
-            )
+            return
+
+    except ImportError:
+        pass
+
+    uid = bot.self_id
+    name = "imagetools"
+    time = datetime.now()
+    await UniMessage(
+        Reference(
+            content=[
+                CustomNode(
+                    uid, name, time, await UniMessage.image(raw=img.getvalue()).export()
+                )
+                for img in images
+            ]
+        )
+    ).send()

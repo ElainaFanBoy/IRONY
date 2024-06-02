@@ -4,7 +4,7 @@ from nonebot import on_command, on_regex
 from nonebot.adapters.onebot.v11 import (GroupMessageEvent, Message,
                                          MessageEvent, MessageSegment)
 from nonebot.matcher import Matcher
-from nonebot.params import CommandArg, Depends, RegexMatched
+from nonebot.params import CommandArg, Depends, RegexStr
 from nonebot.plugin import PluginMetadata
 from nonebot.rule import Rule
 
@@ -67,7 +67,7 @@ surrender_tkk = on_regex(pattern="^找不到\S{1,8}$", rule=Rule(
 
 
 @random_tkk.handle()
-async def _(matcher: Matcher, event: MessageEvent, matched: str = RegexMatched()):
+async def _(matcher: Matcher, event: MessageEvent, matched: str = RegexStr()):
     uid: str = str(event.user_id)
     gid: str = ""
     level: str = ""
@@ -111,7 +111,7 @@ async def _(matcher: Matcher, event: MessageEvent, matched: str = RegexMatched()
 
 
 @random_tkk_default.handle()
-async def _(matcher: Matcher, event: MessageEvent, matched: str = RegexMatched()):
+async def _(matcher: Matcher, event: MessageEvent, matched: str = RegexStr()):
     if matched[-2:] == "帮助":
         await matcher.finish(__randomtkk_usages__)
 
@@ -181,7 +181,7 @@ async def _(event: MessageEvent, pos: List[int] = Depends(get_user_guess)):
 
 
 @surrender_tkk.handle()
-async def _(matcher: Matcher, event: MessageEvent, matched: str = RegexMatched()):
+async def _(matcher: Matcher, event: MessageEvent, matched: str = RegexStr()):
     arg: str = matched[3:]
 
     if isinstance(event, GroupMessageEvent):

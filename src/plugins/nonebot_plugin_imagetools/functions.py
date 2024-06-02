@@ -3,7 +3,8 @@ import re
 from io import BytesIO
 from typing import List, Optional
 
-from PIL import Image, ImageFilter, ImageOps
+from PIL import ImageFilter, ImageOps
+from PIL.Image import Transpose
 from PIL.ImageColor import colormap
 from pil_utils import BuildImage, text2image
 from pil_utils.gradient import ColorStop, LinearGradient
@@ -21,11 +22,11 @@ color_pattern_num = rf"(?:rgb)?\(?\s*{num_256}[\s,]+{num_256}[\s,]+{num_256}\s*\
 
 
 def flip_horizontal(img: BuildImage = Img(), arg=NoArg()):
-    return make_jpg_or_gif(img, lambda img: img.transpose(Image.FLIP_LEFT_RIGHT))
+    return make_jpg_or_gif(img, lambda img: img.transpose(Transpose.FLIP_LEFT_RIGHT))
 
 
 def flip_vertical(img: BuildImage = Img(), arg=NoArg()):
-    return make_jpg_or_gif(img, lambda img: img.transpose(Image.FLIP_TOP_BOTTOM))
+    return make_jpg_or_gif(img, lambda img: img.transpose(Transpose.FLIP_TOP_BOTTOM))
 
 
 def grey(img: BuildImage = Img(), arg=NoArg()):
@@ -132,6 +133,7 @@ def color_mask(img: BuildImage = Img(), arg: str = Arg()):
         color = arg
     elif match := re.fullmatch(color_pattern_num, arg):
         color = tuple(map(int, match.groups()))
+        assert len(color) == 3
     elif arg in color_table:
         color = color_table[arg]
     else:
@@ -144,6 +146,7 @@ def color_image(arg: str = Arg()):
         color = arg
     elif match := re.fullmatch(color_pattern_num, arg):
         color = tuple(map(int, match.groups()))
+        assert len(color) == 3
     elif arg in color_table:
         color = color_table[arg]
     else:
@@ -173,6 +176,7 @@ def gradient_image(args: List[str] = Args()):
             color = arg
         elif match := re.fullmatch(color_pattern_num, arg):
             color = tuple(map(int, match.groups()))
+            assert len(color) == 3
         elif arg in color_table:
             color = color_table[arg]
         else:
@@ -218,15 +222,26 @@ def gif_change_fps(img: BuildImage = Img(), arg: str = Arg()):
     image = img.image
     if not getattr(image, "is_animated", False):
         return
-    match1 = re.fullmatch(r"([\d\.]{1,4})(?:x|X|倍速?)", arg)
-    match2 = re.fullmatch(r"(\d{1,3})%", arg)
     duration = get_avg_duration(image) / 1000
-    if match1:
-        duration /= float(match1.group(1))
-    elif match2:
-        duration /= int(match2.group(1)) / 100
+    p_float = r"\d{0,3}\.?\d{1,3}"
+    if match := re.fullmatch(rf"({p_float})(?:x|X|倍速?)", arg):
+        duration /= float(match.group(1))
+    elif match := re.fullmatch(rf"({p_float})%", arg):
+        duration /= float(match.group(1)) / 100
+    elif match := re.fullmatch(rf"({p_float})fps", arg, re.I):
+        duration = 1 / float(match.group(1))
+    elif match := re.fullmatch(rf"({p_float})(m?)s", arg, re.I):
+        duration = (
+            float(match.group(1)) / 1000 if match.group(2) else float(match.group(1))
+        )
     else:
-        return "请使用正确的倍率格式，如：0.5x、50%"
+        return "请使用正确的倍率格式，如：0.5x、50%、20FPS、0.05s"
+    if duration < 0.02:
+        return (
+            f"帧间隔必须 大于 0.02 s（小于等于 50 FPS），\n"
+            f"超过该限制可能会导致 GIF 显示速度不正常。\n"
+            f"当前帧间隔为 {duration:.3f} s ({1 / duration:.1f} FPS)"
+        )
     frames = split_gif(image)
     return save_gif(frames, duration)
 
@@ -259,12 +274,12 @@ def gif_join(imgs: List[BuildImage] = Imgs(), arg: str = Arg()):
 
 def four_grid(img: BuildImage = Img(), arg=NoArg()):
     img = img.square()
-    l = img.width // 2
+    a = img.width // 2
     boxes = [
-        (0, 0, l, l),
-        (l, 0, l * 2, l),
-        (0, l, l, l * 2),
-        (l, l, l * 2, l * 2),
+        (0, 0, a, a),
+        (a, 0, a * 2, a),
+        (0, a, a, a * 2),
+        (a, a, a * 2, a * 2),
     ]
     output: List[BytesIO] = []
     for box in boxes:
@@ -275,17 +290,17 @@ def four_grid(img: BuildImage = Img(), arg=NoArg()):
 def nine_grid(img: BuildImage = Img(), arg=NoArg()):
     img = img.square()
     w = img.width
-    l = img.width // 3
+    a = img.width // 3
     boxes = [
-        (0, 0, l, l),
-        (l, 0, l * 2, l),
-        (l * 2, 0, w, l),
-        (0, l, l, l * 2),
-        (l, l, l * 2, l * 2),
-        (l * 2, l, w, l * 2),
-        (0, l * 2, l, w),
-        (l, l * 2, l * 2, w),
-        (l * 2, l * 2, w, w),
+        (0, 0, a, a),
+        (a, 0, a * 2, a),
+        (a * 2, 0, w, a),
+        (0, a, a, a * 2),
+        (a, a, a * 2, a * 2),
+        (a * 2, a, w, a * 2),
+        (0, a * 2, a, w),
+        (a, a * 2, a * 2, w),
+        (a * 2, a * 2, w, w),
     ]
     output: List[BytesIO] = []
     for box in boxes:

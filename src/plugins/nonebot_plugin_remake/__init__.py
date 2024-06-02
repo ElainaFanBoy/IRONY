@@ -1,33 +1,36 @@
-import re
-import random
 import itertools
+import random
+import re
 import traceback
-from typing import List, Tuple, Optional
+from io import BytesIO
+from typing import List, Optional, Tuple
 
-from nonebot import on_command
+from nonebot import on_command, require
+from nonebot.log import logger
+from nonebot.params import ArgPlainText
+from nonebot.plugin import PluginMetadata, inherit_supported_adapters
 from nonebot.rule import to_me
 from nonebot.typing import T_State
-from nonebot.plugin import PluginMetadata
-from nonebot.params import ArgPlainText
-from nonebot.adapters.onebot.v11 import (
-    Bot,
-    MessageEvent,
-    GroupMessageEvent,
-)
-from nonebot.log import logger
+from nonebot.utils import run_sync
 
-from .life import Life
+require("nonebot_plugin_alconna")
+
+from nonebot_plugin_alconna import UniMessage
+
+from .drawer import draw_life, save_jpg
+from .life import Life, PerAgeProperty, PerAgeResult
+from .property import Summary
 from .talent import Talent
 
 __plugin_meta__ = PluginMetadata(
     name="人生重开",
     description="人生重开模拟器",
     usage="@我 remake/liferestart/人生重开",
+    type="application",
+    homepage="https://github.com/noneplugin/nonebot-plugin-remake",
+    supported_adapters=inherit_supported_adapters("nonebot_plugin_alconna"),
     extra={
-        "unique_name": "remake",
         "example": "@小Q remake",
-        "author": "meetwq <meetwq@gmail.com>",
-        "version": "0.2.7",
     },
 )
 
@@ -54,9 +57,12 @@ async def _(state: T_State):
 
 
 @remake.got("nums")
-async def _(state: T_State, reply: str = ArgPlainText("nums")):
+async def _(
+    state: T_State,
+    reply: str = ArgPlainText("nums"),
+):
     def conflict_talents(talents: List[Talent]) -> Optional[Tuple[Talent, Talent]]:
-        for (t1, t2) in itertools.combinations(talents, 2):
+        for t1, t2 in itertools.combinations(talents, 2):
             if t1.exclusive_with(t2):
                 return t1, t2
         return None
@@ -75,7 +81,9 @@ async def _(state: T_State, reply: str = ArgPlainText("nums")):
         talents_selected = [talents[n] for n in nums]
         ts = conflict_talents(talents_selected)
         if ts:
-            await remake.reject(f"你选择的天赋“{ts[0].name}”和“{ts[1].name}”不能同时拥有，请重新选择")
+            await remake.reject(
+                f"你选择的天赋“{ts[0].name}”和“{ts[1].name}”不能同时拥有，请重新选择"
+            )
     elif reply == "随机":
         while True:
             nums = random.sample(range(10), 3)
@@ -92,7 +100,8 @@ async def _(state: T_State, reply: str = ArgPlainText("nums")):
     state["talents_selected"] = talents_selected
 
     msg = (
-        "请发送4个数字分配“颜值、智力、体质、家境”4个属性，如“5 5 5 5”，或发送“随机”随机选择；"
+        "请发送4个数字分配“颜值、智力、体质、家境”4个属性，"
+        "如“5 5 5 5”，或发送“随机”随机选择；"
         f"可用属性点为{life_.total_property()}，每个属性不能超过10"
     )
     await remake.send(msg)
@@ -100,8 +109,6 @@ async def _(state: T_State, reply: str = ArgPlainText("nums")):
 
 @remake.got("prop")
 async def _(
-    bot: Bot,
-    event: MessageEvent,
     state: T_State,
     reply: str = ArgPlainText("prop"),
 ):
@@ -134,42 +141,23 @@ async def _(
 
     await remake.send("你的人生正在重开...")
 
-    msgs = [
-        "已选择以下天赋：\n" + "\n".join([str(t) for t in talents]),
-        "已设置如下属性：\n" + f"颜值{nums[0]} 智力{nums[1]} 体质{nums[2]} 家境{nums[3]}",
-    ]
+    init_prop = life_.get_property()
+    results = list(life_.run())
+    summary = life_.gen_summary()
+
     try:
-        life_msgs = []
-        for s in life_.run():
-            life_msgs.append("\n".join(s))
-        n = 5
-        life_msgs = [
-            "\n\n".join(life_msgs[i : i + n]) for i in range(0, len(life_msgs), n)
-        ]
-        msgs.extend(life_msgs)
-        msgs.append(life_.gen_summary())
-        await send_forward_msg(bot, event, "人生重开模拟器", bot.self_id, msgs)
-    except:
+        img = await get_life_img(talents, init_prop, results, summary)
+        await UniMessage.image(raw=img).send()
+    except Exception:
         logger.warning(traceback.format_exc())
         await remake.finish("你的人生重开失败（")
 
 
-async def send_forward_msg(
-    bot: Bot,
-    event: MessageEvent,
-    name: str,
-    uin: str,
-    msgs: List[str],
-):
-    def to_json(msg):
-        return {"type": "node", "data": {"name": name, "uin": uin, "content": msg}}
-
-    messages = [to_json(msg) for msg in msgs]
-    if isinstance(event, GroupMessageEvent):
-        await bot.call_api(
-            "send_group_forward_msg", group_id=event.group_id, messages=messages
-        )
-    else:
-        await bot.call_api(
-            "send_private_forward_msg", user_id=event.user_id, messages=messages
-        )
+@run_sync
+def get_life_img(
+    talents: List[Talent],
+    init_prop: PerAgeProperty,
+    results: List[PerAgeResult],
+    summary: Summary,
+) -> BytesIO:
+    return save_jpg(draw_life(talents, init_prop, results, summary))

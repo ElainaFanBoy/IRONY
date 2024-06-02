@@ -9,20 +9,18 @@ from .config import fortune_config, themes_flag_config
 
 
 def get_copywriting() -> Tuple[str, str]:
-    '''
-            Read the copywriting.json, choice a luck with a random content
-    '''
+    """
+    Read the copywriting.json, choice a luck with a random content
+    """
     _p: Path = fortune_config.fortune_path / "fortune" / "copywriting.json"
 
     with open(_p, "r", encoding="utf-8") as f:
         content = json.load(f).get("copywriting")
+        luck = random.choice(content)
+        title: str = luck.get("good-luck")
+        text: str = random.choice(luck.get("content"))
 
-    luck = random.choice(content)
-
-    title: str = luck.get("good-luck")
-    text: str = random.choice(luck.get("content"))
-
-    return title, text
+        return title, text
 
 
 def random_basemap(theme: str, spec_path: Optional[str] = None) -> Path:
@@ -34,8 +32,9 @@ def random_basemap(theme: str, spec_path: Optional[str] = None) -> Path:
         __p: Path = fortune_config.fortune_path / "img"
 
         # Each dir is a theme.
-        themes: List[str] = [f.name for f in __p.iterdir(
-        ) if f.is_dir() and theme_flag_check(f.name)]
+        themes: List[str] = [
+            f.name for f in __p.iterdir() if f.is_dir() and theme_flag_check(f.name)
+        ]
         picked: str = random.choice(themes)
 
         _p: Path = __p / picked
@@ -54,7 +53,7 @@ def random_basemap(theme: str, spec_path: Optional[str] = None) -> Path:
 def drawing(gid: str, uid: str, theme: str, spec_path: Optional[str] = None) -> Path:
     # 1. Random choice a base image
     imgPath: Path = random_basemap(theme, spec_path)
-    img: Image.Image = Image.open(imgPath)
+    img: Image.Image = Image.open(imgPath).convert("RGB")
     draw = ImageDraw.Draw(img)
 
     # 2. Random choice a luck text with title
@@ -69,11 +68,14 @@ def drawing(gid: str, uid: str, theme: str, spec_path: Optional[str] = None) -> 
         "text": f"{fortune_config.fortune_path}/font/sakura.ttf",
     }
     ttfront = ImageFont.truetype(fontPath["title"], font_size)
-    font_length = ttfront.getsize(title)
+    # font_length = ttfront.getsize(title)
+    bbox = ttfront.getbbox(title)
+    font_length = bbox[2] - bbox[0]
+    font_height = bbox[3] - bbox[1]
     draw.text(
         (
-            image_font_center[0] - font_length[0] / 2,
-            image_font_center[1] - font_length[1] / 2,
+            image_font_center[0] - font_length / 2,
+            image_font_center[1] - font_height / 2,
         ),
         title,
         fill=color,
@@ -111,10 +113,10 @@ def drawing(gid: str, uid: str, theme: str, spec_path: Optional[str] = None) -> 
 
 
 def decrement(text: str) -> Tuple[int, List[str]]:
-    '''
-            Split the text, return the number of columns and text list
-            TODO: Now, it ONLY fit with 2 columns of text
-    '''
+    """
+    Split the text, return the number of columns and text list
+    TODO: Now, it ONLY fit with 2 columns of text
+    """
     length: int = len(text)
     result: List[str] = []
     cardinality = 9
@@ -134,23 +136,37 @@ def decrement(text: str) -> Tuple[int, List[str]]:
         if length % 2 == 0:
             # even
             fillIn = space * int(9 - length / 2)
-            return col_num, [text[: int(length / 2)] + fillIn, fillIn + text[int(length / 2):]]
+            return col_num, [
+                text[: int(length / 2)] + fillIn,
+                fillIn + text[int(length / 2) :],
+            ]
         else:
             # odd number
             fillIn = space * int(9 - (length + 1) / 2)
-            return col_num, [text[: int((length + 1) / 2)] + fillIn, fillIn + space + text[int((length + 1) / 2):]]
+            return col_num, [
+                text[: int((length + 1) / 2)] + fillIn,
+                fillIn + space + text[int((length + 1) / 2) :],
+            ]
 
     for i in range(col_num):
         if i == col_num - 1 or col_num == 1:
-            result.append(text[i * cardinality:])
+            result.append(text[i * cardinality :])
         else:
-            result.append(text[i * cardinality: (i + 1) * cardinality])
+            result.append(text[i * cardinality : (i + 1) * cardinality])
 
     return col_num, result
 
 
 def theme_flag_check(theme: str) -> bool:
-    '''
-            check wether a theme is enabled in themes_flag_config
-    '''
+    """
+    check wether a theme is enabled in themes_flag_config
+    """
     return themes_flag_config.dict().get(theme + "_flag", False)
+
+
+def get_group_or_person(seesion: str) -> str:
+    try:
+        uid = seesion.split("_")
+        return uid[1]
+    except ValueError:
+        return seesion

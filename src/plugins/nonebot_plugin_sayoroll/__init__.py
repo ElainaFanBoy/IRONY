@@ -19,7 +19,7 @@ __plugin_meta__ = PluginMetadata(
 
 roll = on_command(
     'roll',
-    priority=0,
+    priority=7,
     block=False
 )
 
@@ -50,7 +50,8 @@ async def _(bot: Bot, event: MessageEvent, args: Message = CommandArg()):
     elif re.search('([\u4E00-\u9FA5])([\u4E00-\u9FA5])\\1(.*?)', args):
         result = re.search('([\u4E00-\u9FA5])([\u4E00-\u9FA5])\\1(.*?)', args)
         options = [result.group()[:1], result.group()[1:]]
-        msg = '我觉得' + args[:result.span()[0]].replace('我', '你') + random.choice(options) + args[result.span()[1]:]
+        msg = '我觉得' + args[:result.span()[0]].replace('我', '你') + \
+            random.choice(options) + args[result.span()[1]:]
         await roll.finish(
             message=MessageSegment.reply(event.message_id) + msg
         )
