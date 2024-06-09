@@ -15,13 +15,13 @@ A PROJECT FOR IRONY Usage Lagrange.Core + Nonebot2
 [![Python](https://img.shields.io/badge/Python-3.9+-00a393?style=for-the-badge&logo=python&color=406882)](https://python.org)
 [![Nonebot2](https://img.shields.io/badge/Onebot-Nonebot2-red?style=for-the-badge&logo=appveyor&color=EA5252)](https://github.com/nonebot/nonebot2)
 [![Lagrange.Core](https://img.shields.io/badge/OneBot-Lagrange.Core-green.svg?style=for-the-badge&logo=appveyor&color=blue)](https://github.com/KonataDev/Lagrange.Core)
+
 [![LICENSE](https://img.shields.io/github/license/ElainaFanBoy/IRONY?style=for-the-badge&logo=github&color=609966)](https://github.com/ElainaFanBoy/IRONY/blob/master/LICENSE)
 [![CodeFactor](https://img.shields.io/badge/CodeFactor-A-00a393?style=for-the-badge&logo=codefactor&color=00B16A)](https://www.codefactor.io/repository/github/ElainaFanBoy/IRONY)
 [![GitHubRepoSize](https://img.shields.io/github/repo-size/ElainaFanBoy/IRONY?style=for-the-badge&logo=github&color=609966)](https://github.com/ElainaFanBoy/IRONY)
 
 [![QQ](https://img.shields.io/badge/Nanako-712111161-red?style=for-the-badge&logo=tencentqq&color=FFADBC)](http://wpa.qq.com/msgrd?v=3&uin=712111161&site=qq&menu=yes)
-[![QQGroup1](https://img.shields.io/badge/%5BBot%231%5DIRONY%27s%20Home-527244914-red?style=for-the-badge&logo=tencentqq&color=3A8891)](https://qm.qq.com/cgi-bin/qm/qr?k=dRXdn8MbK5OjWVvp5nn3mZfVv9t0A5y5&jump_from=webapi&authKey=Rd35Ezb2myZwrujG+pZZk5u5mjCho4l8BGXWO+BXDolmv68QY1BcDtWv2arfnK5J)
-[![QQGroup2](https://img.shields.io/badge/%5BBot%232%5DIRONY%27s%20Home-830376488-red?style=for-the-badge&logo=tencentqq&color=3A8891)](https://qm.qq.com/cgi-bin/qm/qr?k=AGfL9ka-0Fy5eH4ybuYDJmaI9G7nlG-m&jump_from=webapi&authKey=E/QvtkmiBn1ONZahU+Zc9sQaSh9IsMS9aCnxe/X6buLJBNPgN2cjFL2cj3r4VsRV)
+[![QQGroup](https://img.shields.io/badge/重生之祭弃人打赢复活赛-973481508-red?style=for-the-badge&logo=tencentqq&color=3A8891)](https://qm.qq.com/q/dSUYVPcChq)
 
 <div align="left">
 
