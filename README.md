@@ -8,7 +8,7 @@
 IRONY
 </h1>
 
-A PROJECT FOR IRONY Usage Lagrange.Core + Nonebot2
+A PROJECT FOR IRONY Usage NapCat.Framework + Nonebot2
 
 <p align="center">
 
